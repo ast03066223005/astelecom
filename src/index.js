@@ -6,7 +6,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AppProvider } from './context/ProductContext';
 import { FilterContextProvider } from './context/FilterContext';
-import { CartProvider } from './context/CartContext';
 
 
 
@@ -18,10 +17,7 @@ root.render(
   <React.StrictMode>
     <AppProvider>
       <FilterContextProvider>
-        <CartProvider>
-
         <App />
-        </CartProvider>
       </FilterContextProvider>
     </AppProvider>
   </React.StrictMode>

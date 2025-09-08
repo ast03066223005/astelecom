@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Contact from './pages/Contact'
 import SingleProduct from './pages/SingleProduct'
-import Cart from './pages/Cart'
 import ErrorPage from './pages/ErrorPage';
 
 import Navbar from './components/Navbar';
@@ -40,7 +39,6 @@ function App() {
     <Route path="/product" element={<SingleProduct />}>
       <Route path="/product/:id" element={<SingleProduct />} />
     </Route>
-    <Route path="/cart" element={<Cart />}/>
     <Route path="/contact" element={<Contact />}/>
     <Route path="/*" element={<ErrorPage />}/>
   </Routes>

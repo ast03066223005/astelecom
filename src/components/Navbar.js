@@ -1,13 +1,8 @@
 import React, { useState } from 'react'
 import Logo from './preComponent/Logo'
 import NavItem from './preComponent/NavItem'
-import DpBox from './preComponent/DpBox';
-import { NavLink, Link } from 'react-router-dom';
-import { useCartContext } from '../context/CartContext';
-import dpImg from './../assets/images/dp.webp'
 
 function Navbar() {
-    const { total_item } = useCartContext();
     const [show, setShow] = useState(false);
 
     const toggle = () => {
@@ -33,18 +28,6 @@ function Navbar() {
             ),
         },
         {
-            key: 'cart',
-            ariaLabel: "Control Your Carts and Check out",
-            toLink: "/cart",
-            className: 'hidden md:block',
-            linkName: (
-                <div className='flex items-center gap-4 md:gap-0'>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" /></svg>
-                    <span className='rounded-full bg-primary text-white min-w-[18px] max-w-[20px] h-[18px] flex items-center justify-center relative md:-top-2 right-2 text-[10px]'>{total_item}</span>
-                </div>
-            ),
-        },
-        {
             key: 'contact',
             ariaLabel: "Contact us , feel free",
             toLink: "/contact",
@@ -57,14 +40,14 @@ function Navbar() {
 
     return (
         <div className='w-screen bg-gray-100 shadow-lg sticky top-0 z-50'>
-            <nav className='container mx-auto grid grid-rows-[] md:grid-rows-1 grid-cols-2 md:grid-cols-9 justify-between gap-6 py-2 px-4 flex-wrap'>
+            <nav className='container mx-auto flex flex-row justify-between gap-6 py-2 px-4 flex-wrap'>
                 <ul className='order-1 col-span-1 flex items-center'>
                     <li>
                         <Logo textSize="xl" />
                     </li>
                 </ul>
 
-                <ul className={`transition-all duration-300 ease-in-out pb-4 md:py-0  absolute md:relative bg-gray-100 mx-auto right-[1px] top-12 md:top-0 sm:w-28  flex-col md:h-auto md:flex-row md:items-center justify-center md:px-8 md:justify-end gap-4 md:gap-2 order-3 md:order-7 col-span-2 md:col-span-7  ${show ? 'block' : 'hidden'} md:flex`}>
+                <ul className={`transition-all duration-300 ease-in-out pb-4 md:py-0  absolute md:relative bg-gray-100 right-[1px] top-12 md:top-0 sm:w-28  flex-col md:h-auto md:flex-row md:items-center justify-center md:px-8 md:justify-end gap-4 md:gap-2 order-3 md:order-7 col-span-2 md:col-span-7  ${show ? 'block' : 'hidden'} md:flex`}>
                     {menuItems.map(item => (
                         <li key={item.key} className={item.className || ''}>
                             <NavItem
@@ -77,14 +60,7 @@ function Navbar() {
                 </ul>
 
                 <ul className='order-2 md:order-2 md:hidden col-span-1 flex justify-end items-center gap-2'>
-                    <li className='md:hidden small-screen-cart'>
-                        <NavLink to="/cart">
-                            <div className='flex items-center md:gap-0'>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" /></svg>
-                                <span className='rounded-full bg-primary text-white min-w-[18px] max-w-[20px] h-[18px] flex items-center justify-center relative -top-2 right-2 text-[10px]'>{total_item}</span>
-                            </div>
-                        </NavLink>
-                    </li>
+                    
                     <li>
                         <div className='md:hidden order-2 md:order-1'>
                             <button aria-label='toggleBtn' onClick={toggle} className='outline-none'>

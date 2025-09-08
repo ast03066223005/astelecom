@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
 import SkeletonSingleProduct from '../skeletonPages/SkeletonSingleProduct'
@@ -7,8 +7,6 @@ import RatingStar from './pageComponents/singlePageComponent/RatingStar'
 
 import AddToCart from './pageComponents/singlePageComponent/AddToCart';
 import LoadingBar from '../components/LoadingBar';
-import Toast from '../components/Toast';
-
 
 
 const API = 'https://raw.githubusercontent.com/GrowinFlow/json/main/data.json';
@@ -25,10 +23,10 @@ function SingleProduct() {
 
   useEffect(() => {
     getSingleProduct(`${API}?id=${id}`);
-  }, [id]);
+  }, [id, getSingleProduct]);
   
 
-  const { product_id, title, product_feature_img, current_price, category, description, discount_percentage, discount_price, ratings, reviews, made_country, keywords, product_stock, product_images } = correctProduct;
+  const { title, product_feature_img, current_price, category, description, discount_percentage, discount_price, ratings, reviews, made_country, keywords, product_stock, product_images } = correctProduct;
   // console.log(correctProduct);
 
   const [mainImg, setMainImg] = useState(product_images ? product_images[0] : '');
@@ -41,7 +39,6 @@ function SingleProduct() {
       </>
   )
   }
-
 
 
   return (
