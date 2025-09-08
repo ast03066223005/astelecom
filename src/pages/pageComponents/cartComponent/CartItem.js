@@ -26,7 +26,7 @@ const CartItem = ({ id, quantity, image, catlog, name, price, stock }) => {
 
                 <div className='hidden md:flex justify-center items-center'>
                     <span>
-                        $<span className='font-medium text-teal-700'>{price}</span>
+                        $<span className='font-medium text-primary'>{price}</span>
                     </span>
                 </div>
 
@@ -35,13 +35,13 @@ const CartItem = ({ id, quantity, image, catlog, name, price, stock }) => {
                 </div>
 
                 <div className='hidden md:flex  justify-center items-center'>
-                    $ <span className='font-medium text-teal-700'>{(price * quantity).toFixed(2)}</span>
+                    $ <span className='font-medium text-primary'>{(price * quantity).toFixed(2)}</span>
                 </div>
 
                 <div className='flex justify-end md:justify-center items-center px-2 group'>
                     <i 
                     onClick={()=>removeItem(id)}
-                    className='fa-solid fa-trash text-red-600  active:text-teal-700   transition-all duration-300 ease-in cursor-pointer hover:scale-125 '
+                    className='fa-solid fa-trash text-red-600  active:text-primary   transition-all duration-300 ease-in cursor-pointer hover:scale-125 '
                     ></i>
                 </div>
             </div>

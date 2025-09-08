@@ -96,11 +96,11 @@ const Cart = () => {
         <div className="box flex-col justify-center items-center border-2 border-dashed border-gray-200 rounded-lg p-4">
                         <div className="sub-total flex items-center justify-between w-60 font-medium">
                             <div className="Heading font-semibold text-gray-400">SUBTOTAL</div>
-                            <div className="value">$ <span className='text-teal-700'>{subtotal.toFixed(2)}</span></div>
+                            <div className="value">$ <span className='text-primary'>{subtotal.toFixed(2)}</span></div>
                         </div>
                         <div className="sub-total flex items-center justify-between w-60 font-medium">
                             <div className="Heading font-semibold text-gray-400">SHIPPING FEE</div>
-                            <div className="value">$ <span className='text-teal-700'>{shipping_fee}</span></div>
+                            <div className="value">$ <span className='text-primary'>{shipping_fee}</span></div>
                         </div>
                         <div className='py-2'>
 
@@ -108,7 +108,7 @@ const Cart = () => {
                         </div>
                         <div className="sub-total flex items-center justify-between w-60 font-medium">
                             <div className="Heading font-semibold text-gray-400">TOTAL</div>
-                            <div className="value">$ <span className='text-teal-700'>{total.toFixed(2)}</span></div>
+                            <div className="value">$ <span className='text-primary'>{total.toFixed(2)}</span></div>
                         </div>
                     </div>
         </div>

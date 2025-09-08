@@ -36,7 +36,7 @@ const OfferTimer = ({ endTime }) => {
             <div className="timer-heading flex justify-evenly sm:justify-between items-center">
 
                 <div className="div flex justify-between items-center gap-12">
-                    <div className="heading font-medium text-teal-700">
+                    <div className="heading font-medium text-primary">
                     <div className="arrow absolute w-16 z-20">
             <img src={arrowImg} alt="arrow" className='relative top-2 -left-10 rotate-[135deg]' width="64"/>
         </div>
@@ -49,10 +49,10 @@ const OfferTimer = ({ endTime }) => {
                     <span>
                         <div className="timer flex items-center gap-2">
 
-                        <div className='w-10 p-2 bg-teal-700 rounded-md flex justify-center items-center shadow-md'>{timeLeft.days}</div><span className='text-black'>:</span>
-                        <div className='w-10 p-2 bg-teal-700 rounded-md flex justify-center items-center shadow-md'>{timeLeft.hours}</div><span className='text-black'>:</span>
-                        <div className='w-10 p-2 bg-teal-700 rounded-md flex justify-center items-center shadow-md'>{timeLeft.minutes}</div><span className='text-black'>:</span>
-                        <div className='w-10 p-2 bg-teal-700 rounded-md flex justify-center items-center shadow-md'>{timeLeft.seconds}</div>
+                        <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.days}</div><span className='text-black'>:</span>
+                        <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.hours}</div><span className='text-black'>:</span>
+                        <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.minutes}</div><span className='text-black'>:</span>
+                        <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.seconds}</div>
                         </div>
 
                            

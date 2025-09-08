@@ -69,7 +69,7 @@ function SingleProduct() {
               {
                 product_images && product_images.map((key, index) => (
 
-                  <div className="img ring-2 ring-teal-700 rounded-md w-10 h-10 md:w-10 overflow-hidden p-[1px] group ">
+                  <div className="img ring-2 ring-primary rounded-md w-10 h-10 md:w-10 overflow-hidden p-[1px] group ">
                     <img src={key} alt="" key={index} className='rounded-md object-fit group-hover:scale-110 cursor-pointer transition-all ease-linear duration-300' onClick={() => { setMainImg(product_images[index]) }} />
                   </div>
 
@@ -130,11 +130,11 @@ function SingleProduct() {
 
             <div className="price gap-2 lg:py-4 py-2 flex items-center justify-between">
               <div className="current-price_dicount text-2xl">$
-                <span className='text-bold text-teal-700'>{discount_price}</span>
+                <span className='text-bold text-primary'>{discount_price}</span>
                 <sub className='line-through text-gray-500 z-0'>{current_price}</sub>
               </div>
               <div className="discount-perscent text-2xl">-
-                <span className='text-black'>{discount_percentage}<span className='text-teal-700'>%</span></span>
+                <span className='text-black'>{discount_percentage}<span className='text-primary'>%</span></span>
               </div>
             </div>
 

@@ -41,7 +41,7 @@ const FilterSection = () => {
                   aria-label='category'
                   value={category}
                   onClick={() => filterProductsByCategory(category)}
-                  className="md:p-2 p-2 hover:underline md:bg-gray-100 md:w-full rounded-lg shadow-md active:text-teal-700 active:underline"
+                  className="md:p-2 p-2 hover:underline md:bg-gray-100 md:w-full rounded-lg shadow-md active:text-primary active:underline"
                 >
                   {category}
                 </button>

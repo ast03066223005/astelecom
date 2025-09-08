@@ -60,7 +60,7 @@ const AddToCart = ({ initialStock, country, product, product_id, mainImg, title 
       </div>
       <div className="btns pt-2 lg:py-4 flex gap-2 md:flex-row flex-col justify-between items-center">
         <button
-          className="text-white w-full flex justify-center items-center gap-2 bg-teal-700 active:text-teal-700 active:bg-white focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5"
+          className="text-white w-full flex justify-center items-center gap-2 bg-primary active:text-primary active:bg-white focus:ring-4 focus:outline-none focus:ring-teal-500 font-medium rounded-lg text-sm px-5 py-2.5"
           onClick={handleAddToCart}
         >
           <i className="fa-solid fa-cart-plus"></i>

@@ -51,7 +51,7 @@ function ContactForm() {
 
       <button 
       type="submit" 
-      className="text-white bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-500  w-full rounded-lg text-sm px-5 py-2.5 mb-2 block"
+      className="text-white bg-primary focus:ring-4 focus:outline-none focus:ring-teal-500  w-full rounded-lg text-sm px-5 py-2.5 mb-2 block"
       disabled={state.submitting}>Send message</button>
    </form>
     </div>
