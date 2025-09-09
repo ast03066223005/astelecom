@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#ef4444', // red-500, updated to red as requested
+          DEFAULT: '#FF0000', // red-500, updated to red as requested
           light: '#2dd4bf',   // teal-400, lighter shade for hovers, accents
           dark: '#134e4a',    // teal-900, for dark backgrounds
         },

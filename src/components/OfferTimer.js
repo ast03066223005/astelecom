@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Buttons from './Buttons';
 
 import arrowImg from './../assets/images/arrow2.svg'
 
@@ -66,9 +65,7 @@ const OfferTimer = ({ endTime }) => {
 
                 </div>
 
-                <div className="shop-more z-10 hidden md:flex">
-                    <Buttons btnLink="/shop" btnText="Shop more"/>
-                </div>
+
 
 
             </div>

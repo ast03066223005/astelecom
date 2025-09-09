@@ -5,19 +5,13 @@ function NewsLetter() {
   return (
     <>
 
-<div className="news-bg px-4 bg-white flex items-center justify-center container mx-auto">
+<div className="news-bg px-4 bg-white flex items-center justify-center  max-w-4xl mx-auto">
 
-    <div className="newsL z-40 bg-white p-4 pb-0 rounded-md md:rounded-lg shadow-lg w-full relative top-12 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 grid-rows-1 gap-2 lg:gap-6">
-        <div className="headings hidden md:block lg:col-span-7">
-            <h1 className='text-2xl lg:text-4xl font-semibold'>Sign up for our newsletter</h1>
-            <p className='text-sm lg:text-lg py-2 text-gray-500'>Stay up to date with the roadmap progress, announcements and exclusive discounts feel free to sign up with your email.</p>
-        </div>
-    
-<div></div>
+    <div className="newsL z-40 bg-white p-4 pb-0 rounded-md md:rounded-lg shadow-lg w-full relative top-12 flex flex-col items-center justify-center">
 
-    <div className="join col-span-4">
+    <div className="join w-full">
                                 <div className="heading">
-                                    <p className="text-xl font-bold pb-4">Join a Newsletter</p>
+                                    <p className="text-2xl font-bold pb-4">Join a Newsletter</p>
                                 </div>
                                 <div className="form">
 
@@ -25,7 +19,7 @@ function NewsLetter() {
                                         <div className="flex ">
 
                                             <div className="relative rounded-full flex  gap-2 w-full">
-                                                <input type="email" className="shadow-lg p-2 text-sm text-gray-900 bg-gray-50 rounded-md focus:outline-primary w-full" placeholder="Input your email here..." required="" />
+                                                <input type="email" className="shadow-lg p-2 text-sm text-gray-900 bg-gray-50 rounded-md focus:outline-primary w-full" placeholder="your email/number here..." required="" />
                                                 <Buttons btnText={<i className="fa-solid fa-paper-plane "></i>}/>
                                         
                                             </div>
