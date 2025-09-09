@@ -9,6 +9,7 @@ import ErrorPage from './pages/ErrorPage';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import BannerBar from './pages/pageComponents/homeCompnents/BannerBar';
 
 import { useProductContext } from './context/ProductContext';
 import LoadingBar from './components/LoadingBar';
@@ -29,6 +30,7 @@ function App() {
   return (
  
 <Router>
+  <BannerBar />
   <Navbar />
   <Routes>
     <Route path="/" element={<Home />}/>
@@ -36,9 +38,7 @@ function App() {
     <Route path="/shop/:category" element={<Shop />}/>
 
     
-    <Route path="/product" element={<SingleProduct />}>
-      <Route path="/product/:id" element={<SingleProduct />} />
-    </Route>
+    <Route path="/product/:id" element={<SingleProduct />}/>
     <Route path="/contact" element={<Contact />}/>
     <Route path="/*" element={<ErrorPage />}/>
   </Routes>

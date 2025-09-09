@@ -28,6 +28,12 @@ const ProductReducer = (state, action) => {
                 isSingleLoading: true,
             };
 
+        case "SET_FEATURE_PRODUCTS":
+            return {
+                ...state,
+                featureProducts: action.payload,
+            };
+
         case "SET_SINGLE_DATA":
             return {
                 ...state,
