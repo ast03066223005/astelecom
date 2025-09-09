@@ -15,7 +15,7 @@ function SingleProduct() {
       getSingleProduct(id);
     }
   }, [id, getSingleProduct]);
-
+  
   // Get the product from singleProduct (which should be a single object, not an array)
   const correctProduct = singleProduct || {};
   
@@ -27,10 +27,10 @@ function SingleProduct() {
   if (isSingleLoading) {
     return (
       <>
-        <LoadingBar />
-        <SkeletonSingleProduct />
+      <LoadingBar />
+    <SkeletonSingleProduct />
       </>
-    )
+  )
   }
 
   // Handle case when product is not found
@@ -55,14 +55,11 @@ function SingleProduct() {
           {/* breadcrumb_navigation  */}
           <Breadcrumb 
             link_1={"/"} 
-            text_1="Home" 
-            link_2={"/shop"} 
-            text_2={"Shop"} 
-            text_3={correctProduct.category} 
-            text_4={correctProduct.title} 
+            text_1="Home"  
+            text_2={correctProduct.title} 
           />
         </div>
-        
+
         {/* Use the enhanced ProductDetails component */}
         <ProductDetails product={correctProduct} />
       </div>

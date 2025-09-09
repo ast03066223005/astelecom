@@ -39,7 +39,7 @@ function Footer() {
 
                 {/* Copyright Section */}
                 <section className="footer flex justify-center bg-gray-100 py-4">
-                    <p className="flex items-center gap-2 justify-center font-semibold text-xs md:text-md text-gray-500">
+                    <p className="flex items-center gap-2 justify-center font-semibold text-xs md:text-lg text-gray-500">
                         All Rights Reserved &nbsp; | <Logo textSize="sm" /> | &nbsp;© {currentYear}
                     </p>
                 </section>

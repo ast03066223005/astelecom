@@ -1,80 +1,172 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import Logo from './preComponent/Logo'
-import NavItem from './preComponent/NavItem'
 
 function Navbar() {
-    const [show, setShow] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [showMobileSearch, setShowMobileSearch] = useState(false);
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
-    const toggle = () => {
-        setShow(prevShow => !prevShow);
+    // Sync search bar with URL parameters
+    useEffect(() => {
+        const urlSearchQuery = searchParams.get('search');
+        if (urlSearchQuery) {
+            setSearchQuery(urlSearchQuery);
+        } else {
+            setSearchQuery('');
+        }
+    }, [searchParams]);
+
+    // Handle scroll effect for glass morphism
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            setIsScrolled(scrollTop > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        setShowMobileSearch(false);
+        if (searchQuery.trim()) {
+            navigate(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+        } else {
+            // If search is empty, navigate to home without search params
+            navigate('/');
+        }
     }
 
-    // Define menu items in an array for easier management and appending
-    const menuItems = [
-        {
-            key: 'home',
-            ariaLabel: "Visit Home Page",
-            toLink: "/",
-            linkName: (
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M180-120q-25 0-42.5-17.5T120-180v-76l160-142v278H180Zm140 0v-160h320v160H320Zm360 0v-328L509-600l121-107 190 169q10 9 15 20.5t5 24.5v313q0 25-17.5 42.5T780-120H680ZM120-310v-183q0-13 5-25t15-20l300-266q8-8 18.5-11.5T480-819q11 0 21.5 3.5T520-804l80 71-480 423Z" /></svg>
-            ),
-        },
-        {
-            key: 'shop',
-            ariaLabel: "Visit Shop and Shoping now",
-            toLink: "/shop",
-            linkName: (
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M160-720v-80h640v80H160Zm0 560v-240h-40v-80l40-200h640l40 200v80h-40v240h-80v-240H560v240H160Zm80-80h240v-160H240v160Zm-38-240h556-556Zm0 0h556l-24-120H226l-24 120Z" /></svg>
-            ),
-        },
-        {
-            key: 'contact',
-            ariaLabel: "Contact us , feel free",
-            toLink: "/contact",
-            linkName: (
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M480-440v-360q0-17 11.5-28.5T520-840h280q17 0 28.5 11.5T840-800v200q0 17-11.5 28.5T800-560H600L480-440Zm80-200h200v-120H560v120Zm0 0v-120 120Zm238 520q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" /></svg>
-            ),
-        },
-        // You can append more menu items here as needed
-    ];
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(e);
+        }
+    }
 
+    const clearSearch = () => {
+        setSearchQuery('');
+        navigate('/');
+    }
     return (
-        <div className='w-screen bg-gray-100 shadow-lg sticky top-0 z-50'>
-            <nav className='container mx-auto flex flex-row justify-between gap-6 py-2 px-4 flex-wrap'>
-                <ul className='order-1 col-span-1 flex items-center'>
+        <>
+        <div className={`w-screen sticky top-0 z-50 transition-all duration-300 ${
+            isScrolled 
+                ? 'bg-white/20 backdrop-blur-xl shadow-xl border-b border-white/20 ' 
+                : 'bg-gray-100 backdrop-blur-md'
+        }`}>
+            <nav className='container mx-auto flex flex-row justify-between gap-6 py-2 px-4 flex-wrap items-center'>
+                <ul className=' col-span-1 flex items-center'>
                     <li>
                         <Logo textSize="xl" />
                     </li>
                 </ul>
 
-                <ul className={`transition-all duration-300 ease-in-out pb-4 md:py-0  absolute md:relative bg-gray-100 right-[1px] top-12 md:top-0 sm:w-28  flex-col md:h-auto md:flex-row md:items-center justify-center md:px-8 md:justify-end gap-4 md:gap-2 order-3 md:order-7 col-span-2 md:col-span-7  ${show ? 'block' : 'hidden'} md:flex`}>
-                    {menuItems.map(item => (
-                        <li key={item.key} className={item.className || ''}>
-                            <NavItem
-                                ariaLabel={item.ariaLabel}
-                                toLink={item.toLink}
-                                linkName={item.linkName}
+                {/* Search Bar - always visible on md+, hidden on mobile unless toggled */}
+                <div className=' flex-1 max-w-md mx-4 hidden md:block'>
+                    <form onSubmit={handleSearch} className="relative">
+                        <div className="relative">
+                            <input
+                                type="text"
+                                placeholder="Search products..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyPress={handleKeyPress}
+                                className={`w-full px-4 py-2 pl-10 text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 ${
+                                    isScrolled 
+                                        ? 'bg-white/30 backdrop-blur-sm border border-gray-100/40' 
+                                        : 'bg-white border border-gray-300'
+                                } ${searchQuery ? 'pr-20' : 'pr-12'}`}
                             />
-                        </li>
-                    ))}
-                </ul>
-
-                <ul className='order-2 md:order-2 md:hidden col-span-1 flex justify-end items-center gap-2'>
-                    
-                    <li>
-                        <div className='md:hidden order-2 md:order-1'>
-                            <button aria-label='toggleBtn' onClick={toggle} className='outline-none'>
-                                <span className="block w-8 h-8 md:h-10 md:w-10 py-1 md:px-3 bg-gray-100 hover:bg-white rounded-md bg-transparent text-gray-500 hover:shadow-sm border-2 border-primary shadow-md cursor-pointer">
-                                    {show ?
-                                        (<i className="fa-solid fa-x"></i>) :
-                                        (<i className="fa-solid fa-bars"></i>)}
-                                </span>
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i className="fa-solid fa-search text-gray-400"></i>
+                            </div>
+                            
+                            {/* Clear button - only show when there's text */}
+                            {searchQuery && (
+                                <button
+                                    type="button"
+                                    onClick={clearSearch}
+                                    className="absolute inset-y-0 right-8 flex items-center pr-3 text-gray-400 hover:text-red-500 transition-colors"
+                                >
+                                    <i className="fa-solid fa-times"></i>
+                                </button>
+                            )}
+                            
+                            {/* Search button */}
+                            <button
+                                type="submit"
+                                className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-100 hover:text-gray-200 bg-primary"
+                            >
+                                <i className="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
-                    </li>
+                    </form>
+                </div>
+
+ 
+
+                {/* Contact Icon - always visible on all screens */}
+                <ul className='order-3 md:hidden flex justify-end items-center gap-2'>
+                <button
+                        aria-label="Open search"
+                        className="text-gray-100 hover:text-primary px-2 py-2 rounded-lg transition-colors duration-200 md:hidden"
+                        onClick={() => setShowMobileSearch(true)}
+                    >
+                        <i className="fa-solid fa-search text-xl"></i>
+                    </button>
                 </ul>
+
             </nav>
         </div>
+        {/* Mobile search bar, full width, appears at bottom of header when search icon is clicked */}
+        {showMobileSearch && (
+            <div className="fixed top-0 left-0 w-full z-[100] bg-white/90 backdrop-blur-lg shadow-lg px-4 py-3 flex items-center animate-fade-in-down">
+                <form onSubmit={handleSearch} className="relative flex-1">
+                    <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={searchQuery}
+                        autoFocus
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        className="w-full px-4 py-2 pl-10 pr-20 text-gray-700 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 bg-white"
+                    />
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <i className="fa-solid fa-search text-gray-400"></i>
+                    </div>
+                    {/* Clear button */}
+                    {searchQuery && (
+                        <button
+                            type="button"
+                            onClick={clearSearch}
+                            className="absolute inset-y-0 right-12 flex items-center pr-3 text-gray-400 hover:text-red-500 transition-colors"
+                        >
+                            <i className="fa-solid fa-times"></i>
+                        </button>
+                    )}
+                    {/* Search button */}
+                    <button
+                        type="submit"
+                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary"
+                    >
+                        <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+                <button
+                    aria-label="Close search"
+                    className="ml-2 text-gray-500 hover:text-red-500 text-2xl"
+                    onClick={() => setShowMobileSearch(false)}
+                >
+                    <i className="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        )}
+        </>
     )
 }
 

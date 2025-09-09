@@ -26,7 +26,7 @@ const AppProvider = ({ children }) => {
         try {
             // Use local data instead of API
             const products = itemsData;
-            const featureProducts = products.filter(product => product.featured);
+            const featureProducts = products.filter(product => product.featured).slice(0, 3);
             
             dispatch({ type: "SET_API_DATA", payload: products });
             dispatch({ type: "SET_FEATURE_PRODUCTS", payload: featureProducts });

@@ -52,10 +52,24 @@ const filterReducer = (state, action) => {
         case "FILTER_PRODUCTS":
             const { all_products } = state;
             let tempFilterProducts = [...all_products];
-            const { category } = state.filters;
+            const { category, text } = state.filters;
 
-            if (category && category !== "all") { // Changed to "all"
+            // Filter by category
+            if (category && category !== "all") {
                 tempFilterProducts = tempFilterProducts.filter((product) => product.category === category);
+            }
+
+            // Filter by search text
+            if (text && text.trim() !== "") {
+                const searchTerm = text.toLowerCase().trim();
+                tempFilterProducts = tempFilterProducts.filter((product) => 
+                    product.title.toLowerCase().includes(searchTerm) ||
+                    product.description.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm) ||
+                    (product.keywords && product.keywords.some(keyword => 
+                        keyword.toLowerCase().includes(searchTerm)
+                    ))
+                );
             }
 
             return {

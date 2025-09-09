@@ -1,5 +1,4 @@
 import React from 'react'
-import HeroSection from './pageComponents/homeCompnents/HeroSection'
 import Services from './pageComponents/homeCompnents/Services'
 import Trusted from './pageComponents/homeCompnents/Trusted'
 import CarouselSection from './pageComponents/homeCompnents/CarouselSection'
@@ -12,7 +11,7 @@ function Home() {
 
 
   return (
-    <div className='w-screen pr-2  transition-all ease-linear duration-300'>
+    <div className='w-screen pr-2  transition-all ease-linear duration-300 bg-gray-100'>
       {/* <HeroSection /> */}
       <CarouselSection />
       <Trusted />
