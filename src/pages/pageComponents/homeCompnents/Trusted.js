@@ -4,18 +4,19 @@ import AutoScrolling from '../../../components/AutoScrolling';
 function Trusted() {
   // Brand icons
   const brands = [
-    "fa-brands fa-medapps",
-    "fa-brands fa-nfc-directional",
-    "fa-brands fa-mandalorian",
-    "fa-brands fa-pagelines",
-    "fa-brands fa-digg",
-    "fa-brands fa-pied-piper-alt",
+    "fa-brands fa-microsoft",
+    "fa-brands fa-tiktok",
+    "fa-brands fa-apple",
+    "fa-brands fa-google",
+    "fa-brands fa-amazon",
+    "fa-brands fa-meta",
+    "fa-brands fa-whatsapp",
   ];
 
   return (
     <div className="brands-log overflow-hidden mx-auto container">
       <div className="heading text-center py-4 md:py-8 font-extrabold text-4xl text-gray-300 w-full flex justify-center">
-        Trusted by 100+ Brands
+      Brands Whose Customers Trust Us
       </div>
       <div className="relative w-full h-24">
         <AutoScrolling

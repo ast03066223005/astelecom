@@ -60,7 +60,7 @@ function FeatureSection() {
           Featured Products
         </h2>
 
-        <div className="flex gap-4 flex-wrap md:grid-cols-2 md:grid lg:grid-cols-3 border-2 border-dashed p-4 justify-items-center border-gray-200 rounded-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {filteredProducts.map((curElem) => {
             return <FeaturesProductComponent key={curElem.product_id} {...curElem} />
           })}
@@ -91,7 +91,7 @@ function FeatureSection() {
           <div className="text-center py-6">
             <button 
               onClick={handleSeeAll}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 mx-auto"
+              className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 mx-auto"
             >
               <i className="fa-solid fa-list"></i>
               See All Products
