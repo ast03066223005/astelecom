@@ -1,370 +1,329 @@
 const itemsData = [
-    {
-      "product_id": 1,
-      "title": "AST-G1",
-      "description": "Experience next-level audio with AST-G1 Buds: true wireless earbuds featuring immersive sound, long battery life, and a comfortable, secure fit. Perfect for music, calls, and workouts.",
-      "current_price": 2399.99,
-      "discount_price": 4199.99,
-      "discount_percentage": 40,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-1.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-1.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-1.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-1.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-1.png"
-      ],
-      "product_stock": 150,
-      "reviews": 1247,
-      "ratings": 4.8,
-      "product_colors": [
-        "Black",
-        "White",
-        "Gold"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "smartphone",
-        "mobile",
-        "electronics"
-      ],
-      "made_country": "USA",
-      "creation_date": "2024-05-01",
-      "featured": true,
-      "detailed_features": {
-        "display": {
-          "size": "6.7 inches",
-          "resolution": "1440 x 3200 pixels",
-          "type": "Super AMOLED",
-          "refresh_rate": "120Hz",
-          "protection": "Gorilla Glass Victus"
-        },
-        "performance": {
-          "processor": "Snapdragon 8 Gen 2",
-          "ram": "12GB LPDDR5X",
-          "storage": "256GB UFS 4.0",
-          "os": "Android 14",
-          "battery": "5000mAh",
-          "charging": "65W Fast Charging, 15W Wireless"
-        },
-        "camera": {
-          "main": "108MP f/1.8 OIS",
-          "ultra_wide": "12MP f/2.2",
-          "telephoto": "10MP f/2.4 3x Optical Zoom",
-          "front": "32MP f/2.2",
-          "video": "8K@30fps, 4K@60fps"
-        },
-        "connectivity": {
-          "network": "5G, 4G LTE",
-          "wifi": "Wi-Fi 6E",
-          "bluetooth": "Bluetooth 5.3",
-          "nfc": "Yes",
-          "usb": "USB-C 3.2"
-        },
-        "dimensions": {
-          "weight": "195g",
-          "height": "163.3mm",
-          "width": "78.1mm",
-          "thickness": "8.9mm"
-        },
-        "additional_features": [
-          "IP68 Water & Dust Resistance",
-          "In-display Fingerprint Scanner",
-          "Face Unlock",
-          "Stereo Speakers",
-          "Dolby Atmos",
-          "Wireless Charging",
-          "Reverse Wireless Charging"
-        ]
-      },
-      "specifications": {
-        "warranty": "2 years manufacturer warranty",
-        "shipping": "Free shipping on orders over $50",
-        "return_policy": "30-day return policy",
-        "availability": "In stock",
-        "delivery_time": "2-3 business days"
-      }
-    },
-    {
-      "product_id": 2,
-      "title": "AST-G2",
-      "description": "Experience stunning visuals with AST-G1 TV: a 4K Ultra HD TV with vibrant colors and smart features. Perfect for movies, gaming, and entertainment.",
-      "current_price": 1999.99,
-      "discount_price": 4599.99,
-      "discount_percentage": 57,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-2.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-2.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-2.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-2.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-2.png"
-      ],
-      "product_stock": 75,
-      "reviews": 92,
-      "ratings": 3.7,
-      "product_colors": [
-        "Black"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "television",
-        "4K",
-        "smart TV"
-      ],
-      "made_country": "Japan",
-      "creation_date": "2024-05-02",
-      "shipping": true,
-      "featured": true,
-      "detailed_features": {
-        "display": {
-          "size": "65 inches",
-          "resolution": "3840 x 2160 pixels (4K UHD)",
-          "type": "QLED",
-          "refresh_rate": "120Hz",
-          "hdr": "HDR10+, Dolby Vision",
-          "brightness": "1000 nits peak brightness"
-        },
-        "smart_features": {
-          "os": "Smart TV Platform",
-          "apps": "Netflix, YouTube, Prime Video, Disney+",
-          "voice_control": "Built-in Voice Assistant",
-          "casting": "AirPlay 2, Chromecast",
-          "gaming": "Game Mode, VRR, ALLM"
-        },
-        "audio": {
-          "speakers": "2.1 Channel",
-          "output": "20W Total Power",
-          "technologies": "Dolby Atmos, DTS Virtual:X",
-          "connectivity": "Bluetooth, Optical, HDMI ARC"
-        },
-        "connectivity": {
-          "hdmi": "4x HDMI 2.1",
-          "usb": "2x USB 2.0",
-          "wifi": "Wi-Fi 6",
-          "ethernet": "Gigabit Ethernet",
-          "bluetooth": "Bluetooth 5.0"
-        },
-        "dimensions": {
-          "weight": "28.5 kg",
-          "height": "83.8 cm",
-          "width": "144.8 cm",
-          "depth": "6.1 cm (without stand)"
-        },
-        "additional_features": [
-          "Ambient Mode",
-          "One Connect Box",
-          "Samsung SmartThings",
-          "Bixby Voice Control",
-          "Universal Guide",
-          "Multi-View",
-          "Tap View"
-        ]
-      },
-      "specifications": {
-        "warranty": "1 year manufacturer warranty",
-        "shipping": "Free shipping and installation",
-        "return_policy": "30-day return policy",
-        "availability": "In stock",
-        "delivery_time": "3-5 business days"
-      }
-    },
-    {
-      "product_id": 3,
-      "title": "AST-G3",
-      "description": "Experience premium sound with AST-G3: comfortable wireless headphones with noise cancellation. Perfect for music, calls, and gaming.",
-      "current_price": 2699.99,
-      "discount_price": 4999.99,
-      "discount_percentage": 45,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-3.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-3.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-3.png",
-      ],
-      "product_stock": 200,
-      "reviews": 19,
-      "ratings": 2.6,
-      "product_colors": [
-        "Black",
-        "Blue",
-        "Red"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "headphones",
-        "wireless",
-        "audio"
-      ],
-      "made_country": "Germany",
-      "creation_date": "2024-05-03"
-    },
-    {
-      "product_id": 4,
-      "title": "AST-G4",
-      "description": "Experience high-performance gaming with AST-G4: a gaming laptop with high-end graphics and fast performance. Perfect for gaming, streaming, and productivity.",
-      "current_price": 1599.99,
-      "discount_price": 2999.99,
-      "discount_percentage": 45,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-4.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-4.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-4.png",
-      ],
-      "product_stock": 80,
-      "reviews": 19,
-      "ratings": 4.7,
-      "product_colors": [
-        "Black",
-        "Red"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "gaming",
-        "laptop",
-        "computers"
-      ],
-      "made_country": "USA",
-      "creation_date": "2024-05-04"
-    },
-    {
-      "product_id": 5,
-      "title": "AST-G5",
-      "description": "Experience advanced health tracking with AST-G5: a fitness tracker with multiple health monitoring features. Perfect for fitness enthusiasts and health-conscious individuals.",
-      "current_price": 2199.99,
-      "discount_price": 3699.99,
-      "discount_percentage": 41,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-5.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-5.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-5.png",
-      ],
-      "product_stock": 300,
-      "reviews": 92,
-      "ratings": 1.5,
-      "product_colors": [
-        "Black",
-        "Blue",
-        "Green"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "fitness",
-        "tracker",
-        "wearables"
-      ],
-      "made_country": "China",
-      "creation_date": "2024-05-05",
-      "featured": true,
-      "detailed_features": {
-        "display": {
-          "size": "1.4 inches",
-          "resolution": "320 x 360 pixels",
-          "type": "AMOLED",
-          "touch": "Touch Screen",
-          "protection": "Gorilla Glass"
-        },
-        "health_tracking": {
-          "heart_rate": "24/7 Heart Rate Monitoring",
-          "sleep": "Sleep Tracking & Analysis",
-          "steps": "Step Counter",
-          "calories": "Calorie Burn Tracking",
-          "workouts": "20+ Workout Modes",
-          "spo2": "Blood Oxygen Monitoring"
-        },
-        "connectivity": {
-          "bluetooth": "Bluetooth 5.0",
-          "gps": "Built-in GPS",
-          "nfc": "NFC for Payments",
-          "water_resistance": "5ATM Water Resistance"
-        },
-        "battery": {
-          "capacity": "180mAh",
-          "life": "Up to 7 days",
-          "charging": "Magnetic Charging",
-          "time": "2 hours charge time"
-        },
-        "dimensions": {
-          "weight": "30g",
-          "height": "45mm",
-          "width": "38mm",
-          "thickness": "12mm"
-        },
-        "additional_features": [
-          "Smart Notifications",
-          "Music Control",
-          "Weather Updates",
-          "Find My Phone",
-          "Do Not Disturb Mode",
-          "Customizable Watch Faces"
-        ]
-      },
-      "specifications": {
-        "warranty": "1 year manufacturer warranty",
-        "shipping": "Free shipping on orders over $50",
-        "return_policy": "30-day return policy",
-        "availability": "In stock",
-        "delivery_time": "2-3 business days"
-      }
-    },
-    {
-      "product_id": 6,
-      "title": "AST-G6",
-      "description": "Experience high-quality audio with AST-G6: a portable Bluetooth speaker with excellent sound quality. Perfect for music, calls, and entertainment.",
-      "current_price": 3399.99,
-      "discount_price": 5999.99,
-      "discount_percentage": 45,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-6.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-6.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-6.png",
-      ],
-      "product_stock": 250,
-      "reviews": 89,
-      "ratings": 5.0,
-      "product_colors": [
-        "Black",
-        "Red",
-        "Gray"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "speaker",
-        "Bluetooth",
-        "audio"
-      ],
-      "made_country": "South Korea",
-      "creation_date": "2024-05-06"
-    },
-    {
-      "product_id": 7,  
-      "title": "AST-G7",
-      "description": "Experience modern health tracking with AST-G7: a smartwatch with multiple health tracking features. Perfect for fitness enthusiasts and health-conscious individuals.",
-      "current_price": 2999.99,
-      "discount_price": 4999.99,
-      "discount_percentage": 45,
-      "product_feature_img": "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-7.png",
-      "product_images": [
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-7.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-7.png",
-        "https://raw.githubusercontent.com/code-abdulrehman/ast-fe/main/src/assets/data/images/asset-7.png"
-      ],
-      "product_stock": 120,
-      "reviews": 71,
-      "ratings": 4.6,
-      "product_colors": [
-        "Black",
-        "White",
-        "Pink"
-      ],
-      "category": "Electronics",
-      "keywords": [
-        "smartwatch",
-        "wearables",
-        "health"
-      ],
-      "made_country": "Switzerland",
-      "creation_date": "2024-05-07",
-      "shipping": true
-    },
-    
-  ];
+  {
+    product_id: 1,
+    title: "AST-G1",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2400,
+    current_price: 3500,
+    discount_percentage: 31,
+    product_feature_img: "/ast/products/AST-G1.webp",
+    product_images: [
+      "/ast/products/AST-G1.webp",
+      "/ast/products/AST-G1.webp",
+    ],
+    product_stock: 150,
+    reviews: 1247,
+    ratings: 4.8,
+    product_colors: ["Black", "White", "Gold"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-01",
+    featured: true,
+    specs: {
+      wireless_version: "V5.4",
+      wireless_range: ">10m",
+      music_time: "4.5h (Volume 60%)",
+      talk_time: "3.5h",
+      frequency_response: "20 HZ - 20 KHZ",
+      battery: "300mAh",
+      cell_voltage: "5V",
+      standby_time: "30 Days",
+      cell_life: "500 Times",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 2,
+    title: "AST-G2",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2100,
+    current_price: 3200,
+    discount_percentage: 34,
+    product_feature_img: "/ast/products/AST-G2.webp",
+    product_images: [
+      "/ast/products/AST-G2.webp",
+      "/ast/products/AST-G2.webp",
+    ],
+    product_stock: 75,
+    reviews: 92,
+    ratings: 3.7,
+    product_colors: ["Black"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-02",
+    shipping: true,
+    featured: true,
+    specs: {
+      wireless_version: "V5.0",
+      wireless_range: ">10m",
+      earbud_battery: "35mAh",
+      music_time: "4.5 - 5.5h",
+      frequency_response: "20 HZ - 20 KHZ",
+      sensitivity: "93 ± 3dB",
+      battery: "300mAh",
+      cell_voltage: "3.7V",
+      standby_time: "30 Days",
+      cell_life: ">300 Times",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 3,
+    title: "AST-G3",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2200,
+    current_price: 3400,
+    discount_percentage: 35,
+    product_feature_img: "/ast/products/AST-G3.webp",
+    product_images: [
+      "/ast/products/AST-G3.webp",
+      "/ast/products/AST-G3.webp",
+    ],
+    product_stock: 200,
+    reviews: 19,
+    ratings: 2.6,
+    product_colors: ["Black", "Blue", "Red"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-03",
+    specs: {
+      wireless_version: "V5.2",
+      wireless_range: ">10m",
+      earbud_battery: "35mAh",
+      music_time: "4 - 5h",
+      frequency_response: "20 HZ - 20 KHZ",
+      sensitivity: "-42dB ± 3dB",
+      battery: "250mAh",
+      cell_voltage: "3.7V",
+      standby_time: "30 Days",
+      charging_time: "1 - 1.5h",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 4,
+    title: "AST-G4",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2500,
+    current_price: 4000,
+    discount_percentage: 38,
+    product_feature_img: "/ast/products/AST-G4.webp",
+    product_images: [
+      "/ast/products/AST-G4.webp",
+      "/ast/products/AST-G4.webp",
+    ],
+    product_stock: 80,
+    reviews: 19,
+    ratings: 4.7,
+    product_colors: ["Black", "Red"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-04",
+    specs: {
+      wireless_version: "V5.4",
+      wireless_range: ">10m",
+      music_time: "4.5h (Volume 60%)",
+      talk_time: "3.5h",
+      frequency_response: "20 HZ - 20 KHZ",
+      battery: "300mAh",
+      cell_voltage: "5V",
+      standby_time: "30 Days",
+      cell_life: "500 Times",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 5,
+    title: "AST-G5",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2300,
+    current_price: 3600,
+    discount_percentage: 36,
+    product_feature_img: "/ast/products/AST-G5.webp",
+    product_images: [
+      "/ast/products/AST-G5.webp",
+      "/ast/products/AST-G5.webp",
+    ],
+    product_stock: 300,
+    reviews: 92,
+    ratings: 1.5,
+    product_colors: ["Black", "Blue", "Green"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-05",
+    featured: false,
+    specs: {
+      wireless_version: "V5.3",
+      wireless_range: "10 - 15 m",
+      music_time: "10h",
+      impedance: "32 Q",
+      sensitivity: "101 ± 3dB",
+      battery: "350mAh",
+      cell_voltage: "3.7V",
+      standby_time: "30 Days",
+      charging_time: "1.5h",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 6,
+    title: "AST-G6",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2400,
+    current_price: 3500,
+    discount_percentage: 31,
+    product_feature_img: "/ast/products/AST-G6.webp",
+    product_images: [
+      "/ast/products/AST-G6.webp",
+      "/ast/products/AST-G6.webp",
+    ],
+    product_stock: 250,
+    reviews: 89,
+    ratings: 5.0,
+    product_colors: ["Black", "Red", "Gray"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-06",
+    specs: {
+      wireless_version: "V5.4",
+      music_time: "120h (With Power Bank)",
+      impedance: "32 Q",
+      sensitivity: "101 ± 3dB",
+      battery: "300mAh",
+      cell_voltage: "3.7V",
+      standby_time: "30 Days",
+      charging_time: "1.5h",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 7,
+    title: "AST-G7",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2100,
+    current_price: 3200,
+    discount_percentage: 34,
+    product_feature_img: "/ast/products/AST-G7.webp",
+    product_images: [
+      "/ast/products/AST-G7.webp",
+      "/ast/products/AST-G7.webp",
+      "/ast/products/AST-G7.webp"
+    ],
+    product_stock: 120,
+    reviews: 71,
+    ratings: 4.6,
+    product_colors: ["Black", "White", "Pink"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Normal",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-07",
+    shipping: true,
+    specs: {
+      music_time: "50h (With Power Bank)",
+      impedance: "32 Q",
+      sensitivity: "101 ± 3dB",
+      battery: "300mAh",
+      cell_voltage: "3.7V",
+      standby_time: "25 Days",
+      charging_time: "1h",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 8,
+    title: "AST-G8",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2500,
+    current_price: 4500,
+    discount_percentage: 44,
+    product_feature_img: "/ast/products/AST-G8.webp",
+    product_images: [
+      "/ast/products/AST-G8.webp",
+      "/ast/products/AST-G8.webp",
+    ],
+    product_stock: 100,
+    reviews: 100,
+    ratings: 4.5,
+    product_colors: ["Black", "White"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Gaming",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-08",
+    featured: true,
+    specs: {
+      wireless_version: "V5.4",
+      wireless_range: ">10m",
+      earbuds_charging_input: "DC5V/20ma",
+      earbud_battery: "35mAh",
+      music_time: "5.5h (Volume 70%)",
+      talk_time: "5h (Volume 70%)",
+      battery: "250mAh",
+      input_current: "5v/180mA",
+      standby_time: "2000h",
+      charging_time: "1.1h",
+      usb: "Type-C"
+    }
+  },
+  {
+    product_id: 9,
+    title: "AST-G9",
+    description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
+    discount_price: 2400,
+    current_price: 4200,
+    discount_percentage: 43,
+    product_feature_img: "/ast/products/AST-G9.webp",
+    product_images: [
+      "/ast/products/AST-G9.webp",
+      "/ast/products/AST-G9.webp",
+    ],
+    product_stock: 80,
+    reviews: 12,
+    ratings: 4.5,
+    product_colors: ["Black", "Blue"],
+    category: "Electronics",
+    series: "AST-G",
+    mood: "Gaming",
+    keywords: ["wireless", "earbuds", "audio"],
+    made_country: "China",
+    creation_date: "2024-05-09",
+    featured: false,
+    specs: {
+      wireless_version: "V5.3",
+      wireless_range: "12m",
+      earbuds_charging_input: "DC5V/25ma",
+      earbud_battery: "25mAh",
+      music_time: "4.5h (Volume 70%)",
+      talk_time: "4h (Volume 70%)",
+      battery: "200mAh",
+      input_current: "5v/280mA",
+      standby_time: "3000h",
+      charging_time: "80min",
+      charge_times_case_to_earbuds: "3 time",
+      usb: "Type-C"
+    }
+  }
+];
 
 export default itemsData;

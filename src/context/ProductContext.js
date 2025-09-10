@@ -1,5 +1,5 @@
 import reducer from '../reducer/ProductReducer';
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer, useCallback } from "react";
 import itemsData from '../config/itemsData';
 
 // Create the context
@@ -20,8 +20,8 @@ const AppProvider = ({ children }) => {
     // Reducer to manage state
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    // Function to load products from local data
-    const getProducts = () => {
+    // Function to load products from local data - memoized to prevent re-renders
+    const getProducts = useCallback(() => {
         dispatch({ type: "SET_LOADING" });
         try {
             // Use local data instead of API
@@ -33,10 +33,10 @@ const AppProvider = ({ children }) => {
         } catch (error) {
             dispatch({ type: "API_ERROR" });
         }
-    };
+    }, []); // Empty dependency array since itemsData is static
 
-    // Function to get a single product by ID
-    const getSingleProduct = (productId) => {
+    // Function to get a single product by ID - memoized to prevent infinite loops
+    const getSingleProduct = useCallback((productId) => {
         dispatch({ type: "SET_SINGLE_LOADING" });
         try {
             // Find product in local data
@@ -49,11 +49,11 @@ const AppProvider = ({ children }) => {
         } catch (error) {
             dispatch({ type: "SINGLE_ERROR" });
         }
-    };
+    }, []); // Empty dependency array since itemsData is static
 
     useEffect(() => {
         getProducts();
-    }, []);
+    }, [getProducts]);
 
     return (
         <AppContext.Provider value={{ ...state, getSingleProduct }}>

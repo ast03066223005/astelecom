@@ -7,18 +7,30 @@ import CachedImage from "../../../components/CachedImage";
 function CarouselSection() {
   // Get featured products from itemsData
   const featuredProducts = itemsData.filter(product => product.featured).slice(0, 3);
-  console.log(featuredProducts, "fp")
 
   return (
     <div className="w-full container mx-auto px-4 py-1 h-[84vh]">
       <div className="h-full">
-        <Carousel slideInterval={5000} className="rounded-lg shadow-lg">
+        <Carousel slideInterval={3000} className="rounded-lg shadow-lg">
           {featuredProducts.map((product, index) => (
             <div key={product.product_id} className="relative h-full">
               <CachedImage
                 src={product.product_feature_img}
                 alt={product.title}
                 className="w-full h-full object-cover rounded-lg md:blur-sm"
+                loadingComponent={
+                  <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+                    <div className="text-gray-500">Loading carousel...</div>
+                  </div>
+                }
+                errorComponent={
+                  <div className="w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center">
+                    <div className="text-gray-500 text-center">
+                      <div className="text-2xl mb-2">🖼️</div>
+                      <div>Image not available</div>
+                    </div>
+                  </div>
+                }
               />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div className="w-[40%] h-full flex justify-center items-center ">
@@ -26,7 +38,15 @@ function CarouselSection() {
                   <CachedImage
                     src={product.product_feature_img}
                     alt={product.title}
-                    className="w-auto h-auto object-cover rounded-lg hidden md:block mx-2 scale-[0.9]"
+                    className="w-auto h-auto object-cover rounded-lg hidden md:block mx-2 scale-[0.7]"
+                    loadingComponent={
+                      <div className="w-32 h-32 bg-gray-200 animate-pulse rounded-lg hidden md:block mx-2" />
+                    }
+                    errorComponent={
+                      <div className="w-32 h-32 bg-gray-100 border border-gray-300 rounded-lg hidden md:flex items-center justify-center mx-2">
+                        <div className="text-gray-400 text-xs">❌</div>
+                      </div>
+                    }
                   />
                 </div>
                 <div className="text-center text-white max-w-2xl px-6">

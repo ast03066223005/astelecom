@@ -5,7 +5,7 @@ import CachedImage from '../../../components/CachedImage';
 const FeaturesProductComponent = (curElem) => {
 
   const { product_id, title, product_feature_img,
-    current_price, discount_percentage, discount_price, ratings } = curElem;
+    current_price, discount_percentage, discount_price, ratings, mood } = curElem;
 
   return (
     <>
@@ -22,21 +22,45 @@ const FeaturesProductComponent = (curElem) => {
                 aria-hidden="true"
                 draggable="false"
                 style={{ zIndex: 0 }}
+                loadingComponent={
+                  <div className="absolute inset-0 w-full h-full bg-gray-200 animate-pulse" />
+                }
               />
             )}
             {/* Foreground sharp image */}
             <CachedImage
-              className="relative z-10 object-cover transition-all ease-linear duration-300 group-hover:scale-125 scale-110"
+              className="relative z-10 object-cover transition-all ease-linear duration-300 group-hover:scale-125 scale-95"
               src={product_feature_img}
               alt={title}
               loading="lazy"
-              minHeight={120}
-              minWidth={200}
-              style={{ maxHeight: '100%', maxWidth: '100%' }}
+              style={{ 
+                maxHeight: '100%', 
+                maxWidth: '100%',
+                minHeight: '100px',
+                minWidth: '180px'
+              }}
+              loadingComponent={
+                <div className="relative z-10 w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+                  <div className="text-gray-500 text-sm">Loading...</div>
+                </div>
+              }
+              errorComponent={
+                <div className="relative z-10 w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center">
+                  <div className="text-gray-500 text-center">
+                    <div className="text-lg mb-1">📷</div>
+                    <div className="text-xs">Image unavailable</div>
+                  </div>
+                </div>
+              }
             />
             <span className="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white z-20">
               {discount_percentage}% OFF
             </span>
+            {mood === "Gaming" && (
+              <span className="absolute top-0 right-0 m-2 rounded-full bg-primary px-2 text-center text-xs font-medium text-white z-20">
+                <i className="fa-solid fa-gamepad text-white"></i> Gaming
+              </span>
+            )}
           </div>
           <div className="mt-4 px-5 pb-5">
               <h2 className="title text-xl tracking-tight text-slate-900 text-ellipsis overflow-hidden whitespace-nowrap">{title}</h2>
