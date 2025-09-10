@@ -4,19 +4,34 @@ import AutoScrolling from '../../../components/AutoScrolling';
 function Trusted() {
   // Brand icons
   const brands = [
-    "fa-brands fa-microsoft",
-    "fa-brands fa-tiktok",
-    "fa-brands fa-apple",
-    "fa-brands fa-google",
-    "fa-brands fa-amazon",
-    "fa-brands fa-meta",
-    "fa-brands fa-whatsapp",
+    "fa-brands fa-microsoft hover:text-blue-600",
+    "fa-brands fa-tiktok hover:text-black",
+    "fa-brands fa-apple hover:text-gray-600",
+    "fa-brands fa-google hover:text-red-600",
+    "fa-brands fa-amazon hover:text-yellow-600",
+    "fa-brands fa-meta hover:text-blue-600",
+    "fa-brands fa-facebook hover:text-blue-600",
+    "fa-brands fa-instagram hover:text-pink-500",
+    "fa-brands fa-twitter hover:text-blue-600",
+    "fa-brands fa-linkedin hover:text-blue-600",
+    "fa-brands fa-youtube hover:text-red-600",
+    "fa-brands fa-pinterest hover:text-red-600",
+    "fa-brands fa-reddit hover:text-red-600",
+    "fa-brands fa-snapchat hover:text-yellow-400",
+    "fa-brands fa-skype hover:text-blue-600",
+    "fa-brands fa-telegram hover:text-blue-600",
+    "fa-brands fa-vimeo hover:text-blue-600",
+    "fa-brands fa-vine hover:text-green-600",
+    "fa-brands fa-vk hover:text-blue-600",
+    "fa-brands fa-whatsapp hover:text-green-500",
   ];
 
   return (
     <div className="brands-log overflow-hidden mx-auto container">
-      <div className="heading text-center py-4 md:py-8 font-extrabold text-4xl text-gray-300 w-full flex justify-center">
+      <div className="heading text-center py-4 md:py-8 font-extrabold text-2xl md:text-4xl text-gray-300 flex-wrap flex justify-center items-center">
+        <p className='max-w-2xl md:w-full"'>
       Brands Whose Customers Trust Us
+        </p>
       </div>
       <div className="relative w-full h-24">
         <AutoScrolling
@@ -25,7 +40,7 @@ function Trusted() {
           direction="horizontal"
           repeatCount={4}
           className="brands-container"
-          itemClassName="h-20 space-x-8 md:space-x-12 text-4xl md:text-7xl text-gray-700 gap-20"
+          itemClassName="h-20 space-x-8 md:space-x-12 text-4xl md:text-7xl text-gray-700 gap-8 md:gap-20"
           containerClassName="h-20"
           pauseOnHover={true}
         />

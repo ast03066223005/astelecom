@@ -86,7 +86,7 @@ function AutoScrolling({
           }}
         >
           {loopItems.map((item, idx) => (
-            <div key={idx} className={`flex-shrink-0 flex ${itemClassName}`}>
+            <div key={idx} className={`flex-shrink-0 justify-center items-center flex ${itemClassName}`}>
               {typeof item === 'string' ? (
                 item.startsWith('fa-') ? (
                   <i className={item}></i>

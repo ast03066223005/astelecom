@@ -1,13 +1,16 @@
 
 import { Carousel } from "flowbite-react";
 import itemsData from "../../../config/itemsData";
+import asset1 from '../../../assets/images/asset-2.png'
 
 function CarouselSection() {
   // Get featured products from itemsData
-  const featuredProducts = itemsData.filter(product => product.featured).slice(0, 4);
+  const featuredProducts = itemsData.filter(product => product.featured).slice(0, 3);
+  console.log(featuredProducts, "fp")
+  console.log(asset1, "asset1")
 
   return (
-    <div className="w-full container mx-auto px-4 py-8 h-[80vh]">
+    <div className="w-full container mx-auto px-4 py-1 h-[84vh]">
       <div className="h-full">
         <Carousel slideInterval={5000} className="rounded-lg shadow-lg">
           {featuredProducts.map((product, index) => (
@@ -15,9 +18,17 @@ function CarouselSection() {
               <img 
                 src={product.product_feature_img} 
                 alt={product.title} 
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg md:blur-sm"
               />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div className="w-[40%] h-full flex justify-center items-center ">
+
+              <img 
+                src={product.product_feature_img} 
+                alt={product.title} 
+                className="w-auto h-auto object-cover rounded-lg hidden md:block mx-2 scale-[0.9]"
+              />
+                </div>
                 <div className="text-center text-white max-w-2xl px-6">
                   <h2 className="text-4xl font-bold mb-4">{product.title}</h2>
                   <p className="text-xl mb-4">{product.description}</p>

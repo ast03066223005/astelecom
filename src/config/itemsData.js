@@ -1,14 +1,14 @@
 const itemsData = [
     {
       "product_id": 1,
-      "title": "Smartphone XL",
+      "title": "AST-G7",
       "description": "A high-end smartphone with a sleek design and powerful features.",
       "current_price": 999.99,
       "discount_price": 899.99,
       "discount_percentage": 10,
-      "product_feature_img": "https://s.alicdn.com/@sc04/kf/Hfd352e65a5ba4d8895b09925e672aafeg.jpg_300x300.jpg",
+      "product_feature_img": "/static/media/asset-1.a647f4b4f87f58e01e86.png",
       "product_images": [
-        "https://s.alicdn.com/@sc04/kf/Hfd352e65a5ba4d8895b09925e672aafeg.jpg_300x300.jpg",
+        "/static/media/asset-1.a647f4b4f87f58e01e86.png",
         "https://s.alicdn.com/@sc04/kf/H97e9c4ecedd1492985016840843e2364u.png_300x300.png",
         "https://s.alicdn.com/@sc04/kf/H0263f7e538d04a7d856c5a1b5b5ef755A.jpg_300x300.jpg",
         "https://s.alicdn.com/@sc04/kf/Hacf4bb0e2bd54f66a51f593558aa714cr.jpg_300x300.jpg"
@@ -86,14 +86,14 @@ const itemsData = [
     },
     {
       "product_id": 2,
-      "title": "4K Ultra HD TV",
+      "title": "AST-G1",
       "description": "A stunning 4K Ultra HD TV with vibrant colors and smart features.",
       "current_price": 1299.99,
       "discount_price": 1199.99,
       "discount_percentage": 8,
-      "product_feature_img": "https://s.alicdn.com/@img/imgextra/i4/6000000005641/O1CN01u5LTaE1rXd1GaaqLd_!!6000000005641-0-tbvideo.jpg_720x720q50.jpg",
+      "product_feature_img": "/static/media/asset-1.ec53cd4aa6e02399f26c.png",
       "product_images": [
-        "https://s.alicdn.com/@img/imgextra/i4/6000000005641/O1CN01u5LTaE1rXd1GaaqLd_!!6000000005641-0-tbvideo.jpg_720x720q50.jpg",
+        "/static/media/asset-1.ec53cd4aa6e02399f26c.png",
         "https://s.alicdn.com/@sc04/kf/H250285ecb4b446bcbbe2f3590e04abf8X.png",
         "https://s.alicdn.com/@sc04/kf/Hb889870043b04a5daaa0af828e80e6ba6.jpg",
         "https://s.alicdn.com/@img/imgextra/i4/6000000007028/O1CN01iBneCn21msKHvkpqo_!!6000000007028-0-tbvideo.jpg_720x720q50.jpg"
@@ -230,14 +230,14 @@ const itemsData = [
     },
     {
       "product_id": 5,
-      "title": "Fitness Tracker",
+      "title": "AST-G2",
       "description": "A stylish fitness tracker to monitor your health and activities.",
       "current_price": 99.99,
       "discount_price": 79.99,
       "discount_percentage": 20,
-      "product_feature_img": "https://s.alicdn.com/@sc04/kf/He712cce574f4467bb9fc3e8eeaba00bcT.jpg",
+      "product_feature_img": "/static/media/asset-2.021e039f4fc00f0c879d.png",
       "product_images": [
-        "https://s.alicdn.com/@sc04/kf/He712cce574f4467bb9fc3e8eeaba00bcT.jpg",
+        "/static/media/asset-2.021e039f4fc00f0c879d.png",
         "https://s.alicdn.com/@sc04/kf/Hd72aefd925bb401fa3cca00c17eac7ddw.jpg",
         "https://s.alicdn.com/@sc04/kf/H8ee53d50714e4e9d88779c244e146fe13.jpg",
         "https://s.alicdn.com/@sc04/kf/H49756556098c4043a85485719d19eb2c2.jpg"
