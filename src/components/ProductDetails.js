@@ -246,7 +246,7 @@ function ProductDetails({ product }) {
 
       {/* Latest Products Section */}
       {latestProducts.length > 0 && (
-        <div className="mt-16">
+        <div className="mt-16" id="store">
           <hr className="mb-8" />
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Latest Products
@@ -261,7 +261,7 @@ function ProductDetails({ product }) {
           </div>
           
           {/* View All Products Button */}
-          <div className="text-center mt-8">
+          <div className="text-center mt-8" id="store">
             <button
               onClick={() => {
                 navigate('/');
