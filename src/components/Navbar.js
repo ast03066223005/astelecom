@@ -55,13 +55,16 @@ function Navbar() {
     return (
         <>
             <div className={`w-screen sticky top-0 z-50 transition-all duration-300 ${isScrolled
-                    ? 'bg-white/20 backdrop-blur-xl shadow-lg border-b border-white/20 py-1'
+                    ? 'bg-primary text-white  backdrop-blur-xl shadow-lg border-b border-white/20 py-1'
                     : 'bg-gray-100 backdrop-blur-md py-2'
                 }`}>
                 <nav className='container mx-auto flex flex-row justify-between gap-6 px-4 flex-wrap items-center'>
                     <ul className=' col-span-1 flex items-center'>
                         <li>
-                            <Logo textSize="xl" text="Abdulrehman Sapra Telecom" />
+                            <Logo textSize="xl" text="Abdulrehman Sapra Telecom" fill={isScrolled ? 'white' : 'black'} className={` transition-colors duration-200 ${isScrolled
+                                    ? 'text-white hover:text-gray-200 '
+                                    : 'text-gray-800 hover:text-primary'
+                                }`} />
                         </li>
                     </ul>
 
@@ -78,7 +81,7 @@ function Navbar() {
                                     className={`w-full px-4 py-2 pl-10 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 ${isScrolled
                                             ? 'bg-white backdrop-blur-sm border border-gray-100/40 text-xs'
                                             : 'bg-white border border-gray-100 text-sm'
-                                        } ${searchQuery ? 'pr-20' : 'pr-12'}`}
+                                        } ${searchQuery ? 'pr-16' : 'pr-12'}`}
                                 />
                                 <div className="absolute inset-y-0 left-0 flex items-center pl-3">
                                     <i className="fa-solid fa-search text-gray-400"></i>
@@ -98,7 +101,10 @@ function Navbar() {
                                 {/* Search button */}
                                 <button
                                     type="submit"
-                                    className="rounded-r-lg absolute inset-y-0 right-0 flex items-center px-3 text-white hover:text-gray-200 bg-primary"
+                                    className={`rounded-r-lg absolute inset-y-0 right-0 flex items-center px-3 ${isScrolled
+                                        ? 'bg-primary text-white hover:text-gray-200 backdrop-blur-sm border-2 border-gray-100 text-xs'
+                                        : 'bg-primary text-white hover:text-gray-200 border border-gray-100 text-sm'
+                                    }`}
                                 >
                                     <i className="fa-solid fa-arrow-right"></i>
                                 </button>
@@ -112,7 +118,10 @@ function Navbar() {
                     <ul className='order-3 flex justify-end items-center gap-2'>
                         <button
                             aria-label="Open search"
-                            className="text-gray-800 hover:text-primary px-2 py-2 rounded-lg transition-colors duration-200 md:hidden"
+                            className={` px-2 py-2 rounded-lg transition-colors duration-200 md:hidden ${isScrolled
+                                ? 'text-white hover:text-gray-200 '
+                                : 'text-gray-800 hover:text-primary'
+                            }`}
                             onClick={() => setShowMobileSearch(true)}
                         >
                             <i className="fa-solid fa-search text-xl"></i>
@@ -120,7 +129,10 @@ function Navbar() {
                         <a href='#store'>
                             <button
                                 aria-label="Store "
-                                className="text-gray-800 hover:text-primary px-2 py-2 rounded-lg transition-colors duration-200"
+                                className={` px-2 py-2 rounded-lg transition-colors duration-200 ${isScrolled
+                                    ? 'text-white hover:text-gray-200 '
+                                    : 'text-gray-800 hover:text-primary'
+                                }`}
                             >
                                 <i className="fa-solid fa-bag-shopping text-xl"></i>
                             </button>
