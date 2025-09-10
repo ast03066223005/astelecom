@@ -3,47 +3,48 @@ import { useProductContext } from '../../../context/ProductContext'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import FeaturesProductComponent from '../productComponent/FeaturesProductComponent';
 import OfferTimer from '../../../components/OfferTimer';
+import Services from '../homeCompnents/Services';
 
 
 function FeatureSection() {
-    const { featureProducts, products } = useProductContext();
-    const [searchParams] = useSearchParams();
-    const navigate = useNavigate();
-    const [filteredProducts, setFilteredProducts] = useState(featureProducts);
-    const [allProducts, setAllProducts] = useState(products);
+  const { featureProducts, products } = useProductContext();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [filteredProducts, setFilteredProducts] = useState(featureProducts);
+  const [allProducts, setAllProducts] = useState(products);
 
-    const offerEndTime = new Date();
-    offerEndTime.setDate(offerEndTime.getDate() + 2);
+  const offerEndTime = new Date();
+  offerEndTime.setDate(offerEndTime.getDate() + 2);
 
-    // Handle search functionality - only filter all products, keep featured products fixed
-    useEffect(() => {
-        const searchQuery = searchParams.get('search');
-        
-        // Always keep featured products fixed (no filtering)
-        setFilteredProducts(featureProducts);
-        
-        if (searchQuery && searchQuery.trim() !== '') {
-            const searchTerm = searchQuery.toLowerCase().trim();
-            
-            // Only filter all products based on search
-            const filteredAll = products.filter(product => 
-                product.title.toLowerCase().includes(searchTerm) ||
-                product.description.toLowerCase().includes(searchTerm) ||
-                product.category.toLowerCase().includes(searchTerm) ||
-                (product.keywords && product.keywords.some(keyword => 
-                    keyword.toLowerCase().includes(searchTerm)
-                ))
-            );
-            
-            setAllProducts(filteredAll);
-        } else {
-            setAllProducts(products);
-        }
-    }, [searchParams, featureProducts, products]);
+  // Handle search functionality - only filter all products, keep featured products fixed
+  useEffect(() => {
+    const searchQuery = searchParams.get('search');
 
-    const handleSeeAll = () => {
-        navigate('/');
-    };
+    // Always keep featured products fixed (no filtering)
+    setFilteredProducts(featureProducts);
+
+    if (searchQuery && searchQuery.trim() !== '') {
+      const searchTerm = searchQuery.toLowerCase().trim();
+
+      // Only filter all products based on search
+      const filteredAll = products.filter(product =>
+        product.title.toLowerCase().includes(searchTerm) ||
+        product.description.toLowerCase().includes(searchTerm) ||
+        product.category.toLowerCase().includes(searchTerm) ||
+        (product.keywords && product.keywords.some(keyword =>
+          keyword.toLowerCase().includes(searchTerm)
+        ))
+      );
+
+      setAllProducts(filteredAll);
+    } else {
+      setAllProducts(products);
+    }
+  }, [searchParams, featureProducts, products]);
+
+  const handleSeeAll = () => {
+    navigate('/');
+  };
 
   const searchQuery = searchParams.get('search');
 
@@ -55,7 +56,7 @@ function FeatureSection() {
         <div className="heading">
           <OfferTimer endTime={offerEndTime} />
         </div>
-        
+
         <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
           Featured Products
         </h2>
@@ -67,9 +68,10 @@ function FeatureSection() {
         </div>
 
       </div>
+      <Services />
 
       {/* All Products Section */}
-      <div className="container mx-auto p-4 py-6">
+      <div className="container mx-auto p-4 py-6" id='store'>
         <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
           {searchQuery ? `Search Results for "${searchQuery}"` : 'All Products'}
         </h2>
@@ -89,7 +91,7 @@ function FeatureSection() {
         {/* See All Button - only show when there are search results */}
         {searchQuery && allProducts.length > 0 && (
           <div className="text-center py-6">
-            <button 
+            <button
               onClick={handleSeeAll}
               className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 mx-auto"
             >

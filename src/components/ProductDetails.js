@@ -179,7 +179,7 @@ function ProductDetails({ product }) {
           </div>
         </div>
       )}
-      <hr />
+     {product?.specifications ?  <hr /> : <></>}
 
       {/* Specifications */}
       {product.specifications && (

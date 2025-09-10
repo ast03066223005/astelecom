@@ -27,7 +27,7 @@ export function MinimalBannerBar() {
 // Variant 2: Colorful style
 export function ColorfulBannerBar() {
   const announcements = [
-    "🎉 Free shipping on orders over $50!",
+    "🎉 Free shipping",
     "🔥 New arrivals every week!",
     "💎 Premium quality guaranteed!",
     "⚡ Fast delivery in 24-48 hours!"
