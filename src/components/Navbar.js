@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
 import Logo from './preComponent/Logo'
 
 function Navbar() {
@@ -8,6 +8,7 @@ function Navbar() {
     const [showMobileSearch, setShowMobileSearch] = useState(false);
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
+    const location = useLocation();
 
     // Sync search bar with URL parameters
     useEffect(() => {
@@ -34,8 +35,27 @@ function Navbar() {
     const handleSearch = (e) => {
         e.preventDefault();
         setShowMobileSearch(false);
-        if (searchQuery.trim()) {
-            navigate(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+        const trimmedQuery = searchQuery.trim();
+        
+        if (trimmedQuery) {
+            // Check if we're on a product page
+            const isProductPage = location.pathname.startsWith('/product/');
+            
+            if (isProductPage) {
+                // If on product page, add search parameter to current URL
+                const currentPath = location.pathname;
+                navigate(`${currentPath}?search=${encodeURIComponent(trimmedQuery)}`);
+            } else {
+                // If on home page, navigate to home with search parameter
+                navigate(`/?search=${encodeURIComponent(trimmedQuery)}`);
+                // Scroll to store section after navigation
+                setTimeout(() => {
+                    const storeSection = document.getElementById('store');
+                    if (storeSection) {
+                        storeSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
         } else {
             // If search is empty, navigate to home without search params
             navigate('/');
@@ -54,7 +74,7 @@ function Navbar() {
     }
     return (
         <>
-            <div className={`w-screen sticky top-0 z-50 transition-all duration-300 ${isScrolled
+            <div id='/' className={`w-screen sticky top-0 z-50 transition-all duration-300 ${isScrolled
                     ? 'bg-primary text-white  backdrop-blur-xl shadow-lg border-b border-white/20 py-1'
                     : 'bg-gray-100 backdrop-blur-md py-2'
                 }`}>

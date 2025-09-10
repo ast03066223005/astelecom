@@ -11,31 +11,47 @@ function FeatureSection() {
   const navigate = useNavigate();
   const [filteredProducts, setFilteredProducts] = useState(featureProducts);
   const [allProducts, setAllProducts] = useState(products);
+  const [gamingProducts, setGamingProducts] = useState([]);
 
   const offerEndTime = new Date();
   offerEndTime.setDate(offerEndTime.getDate() + 2);
 
-  // Handle search functionality - only filter all products, keep featured products fixed
+  // Handle search functionality and gaming products filtering
   useEffect(() => {
     const searchQuery = searchParams.get('search');
 
     // Always keep featured products fixed (no filtering)
     setFilteredProducts(featureProducts);
 
+    // Filter gaming products (products with mood: "Gaming")
+    const gamingFiltered = products.filter(product => product.mood === "Gaming");
+    setGamingProducts(gamingFiltered);
+
     if (searchQuery && searchQuery.trim() !== '') {
       const searchTerm = searchQuery.toLowerCase().trim();
 
       // Only filter all products based on search
-      const filteredAll = products.filter(product =>
-        product.title.toLowerCase().includes(searchTerm) ||
-        product.description.toLowerCase().includes(searchTerm) ||
-        product.category.toLowerCase().includes(searchTerm) ||
-        (product.keywords && product.keywords.some(keyword =>
-          keyword.toLowerCase().includes(searchTerm)
-        ))
-      );
+      const filteredAll = products.filter(product => {
+        // Create a comprehensive search string for each product
+        const searchableText = [
+          product.title,
+          product.description,
+          product.category,
+          ...(product.keywords || [])
+        ].join(' ').toLowerCase();
+        
+        return searchableText.includes(searchTerm);
+      });
 
       setAllProducts(filteredAll);
+      
+      // Debug logging in development
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Search term:', searchTerm);
+        console.log('Total products:', products.length);
+        console.log('Filtered products:', filteredAll.length);
+        console.log('Gaming products:', gamingFiltered.length);
+      }
     } else {
       setAllProducts(products);
     }
@@ -69,10 +85,29 @@ function FeatureSection() {
       </div>
       <Services />
 
+      {/* Gaming Products Section */}
+      {gamingProducts.length > 0 && !searchQuery && (
+        <div className="container mx-auto p-4 py-6  rounded-lg">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
+              <i className="fa-solid fa-gamepad text-primary"></i>
+              Gaming Products
+            </h2>
+            <p className="text-gray-600">High-performance gaming earbuds for the ultimate gaming experience</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+            {gamingProducts.map((curElem) => {
+              return <FeaturesProductComponent key={curElem.product_id} {...curElem} />
+            })}
+          </div>
+        </div>
+      )}
+
       {/* All Products Section */}
       <div className="container mx-auto p-4 py-6" id='store'>
         <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-          {searchQuery ? `Search Results for "${searchQuery}"` : 'All Products'}
+          {searchQuery ? `Search Results for "${searchQuery}" (${allProducts.length} found)` : 'All Products'}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -83,7 +118,12 @@ function FeatureSection() {
 
         {allProducts.length === 0 && searchQuery && (
           <div className="text-center py-8">
-            <p className="text-gray-600">No products found for "{searchQuery}"</p>
+            <div className="bg-gray-100 rounded-lg p-6 max-w-md mx-auto">
+              <i className="fa-solid fa-search text-4xl text-gray-400 mb-4"></i>
+              <p className="text-gray-600 text-lg mb-2">No products found for</p>
+              <p className="text-gray-800 font-semibold">"{searchQuery}"</p>
+              <p className="text-gray-500 text-sm mt-2">Try searching with different keywords</p>
+            </div>
           </div>
         )}
 
