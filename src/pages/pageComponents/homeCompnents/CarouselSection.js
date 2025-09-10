@@ -1,6 +1,8 @@
 
 import { Carousel } from "flowbite-react";
 import itemsData from "../../../config/itemsData";
+import { NavLink } from "react-router-dom";
+import CachedImage from "../../../components/CachedImage";
 
 function CarouselSection() {
   // Get featured products from itemsData
@@ -13,33 +15,34 @@ function CarouselSection() {
         <Carousel slideInterval={5000} className="rounded-lg shadow-lg">
           {featuredProducts.map((product, index) => (
             <div key={product.product_id} className="relative h-full">
-              <img 
-                src={product.product_feature_img} 
-                alt={product.title} 
+              <CachedImage
+                src={product.product_feature_img}
+                alt={product.title}
                 className="w-full h-full object-cover rounded-lg md:blur-sm"
               />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div className="w-[40%] h-full flex justify-center items-center ">
 
-              <img 
-                src={product.product_feature_img} 
-                alt={product.title} 
-                className="w-auto h-auto object-cover rounded-lg hidden md:block mx-2 scale-[0.9]"
-              />
+                  <CachedImage
+                    src={product.product_feature_img}
+                    alt={product.title}
+                    className="w-auto h-auto object-cover rounded-lg hidden md:block mx-2 scale-[0.9]"
+                  />
                 </div>
                 <div className="text-center text-white max-w-2xl px-6">
                   <h2 className="text-4xl font-bold mb-4">{product.title}</h2>
                   <p className="text-xl mb-4">{product.description}</p>
                   <div className="flex items-center justify-center gap-4 mb-4">
-                   
+
                     <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
                       {product.discount_percentage}% OFF
                     </span>
                   </div>
-               
-                  <button className="bg-white hover:bg-primary hover:text-white text-primary px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
-                    Shop Now
-                  </button>
+                  <NavLink to={`/product/${product.product_id}`} className="w-full flex justify-center items-center">
+                    <button className="bg-white hover:bg-primary hover:text-white text-primary px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+                      Shop Now
+                    </button>
+                  </NavLink>
                 </div>
               </div>
             </div>

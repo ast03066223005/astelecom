@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CachedImage from './CachedImage';
 
 function ProductDetails({ product }) {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -28,7 +29,7 @@ function ProductDetails({ product }) {
         {/* Product Images */}
         <div className="space-y-4">
           <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
-            <img
+            <CachedImage
               src={product.product_images?.[selectedImage] || product.product_feature_img}
               alt={product.title}
               className="w-full h-full object-cover"
@@ -44,7 +45,7 @@ function ProductDetails({ product }) {
                     selectedImage === index ? 'border-primary' : 'border-gray-200'
                   }`}
                 >
-                  <img
+                  <CachedImage
                     src={image}
                     alt={`${product.title} ${index + 1}`}
                     className="w-full h-full object-cover"

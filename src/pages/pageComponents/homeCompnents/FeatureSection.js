@@ -5,7 +5,6 @@ import FeaturesProductComponent from '../productComponent/FeaturesProductCompone
 import OfferTimer from '../../../components/OfferTimer';
 import Services from '../homeCompnents/Services';
 
-
 function FeatureSection() {
   const { featureProducts, products } = useProductContext();
   const [searchParams] = useSearchParams();
