@@ -1,13 +1,11 @@
 
 import { Carousel } from "flowbite-react";
 import itemsData from "../../../config/itemsData";
-import asset1 from '../../../assets/images/asset-2.png'
 
 function CarouselSection() {
   // Get featured products from itemsData
   const featuredProducts = itemsData.filter(product => product.featured).slice(0, 3);
   console.log(featuredProducts, "fp")
-  console.log(asset1, "asset1")
 
   return (
     <div className="w-full container mx-auto px-4 py-1 h-[84vh]">

@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-function Logo(props) {
+function Logo(props,className) {
 	return (
 		<>
-			<NavLink to="/" className={`flex ${`text-` + props.textSize} font-bold text-black flex-col items-start gap-0`}>
+			<NavLink to="/" className={`flex ${`text-` + props.textSize} font-bold flex-col items-start gap-0 ${className}`}>
 				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 441 170" className='w-10 md:w-[52px] h-auto text-black' fill='black'>
+					viewBox="0 0 441 170" className={`w-10 md:w-[52px] h-auto ${className}`} fill={props.fill || 'black'}>
 					<g>
 						<path d="M9.37,147.78c0-0.08,0-0.16,0-0.24c0.26-0.28,0.56-0.53,0.79-0.84c10.13-13.61,20.26-27.21,30.38-40.83
 		c20.09-27.06,40.2-54.1,60.24-81.21c2.54-3.44,5.62-6.06,9.37-8c7.38-3.83,15.07-5.44,23.27-3.27c6.79,1.8,12.29,5.72,16.84,10.92
@@ -30,7 +30,7 @@ function Logo(props) {
 					</g>
 				</svg>
 				{
-					props.text && <span className='text-[10px] font-light leading-none' style={{ lineHeight: '10px' }}>{props.text}</span>
+					props.text && <span className={`text-[10px] font-medium leading-none ${className}`} style={{ lineHeight: '10px' }}>{props.text}</span>
 				}
 
 			</NavLink>
