@@ -1,5 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import CachedImage from '../../../components/CachedImage';
+
 const FeaturesProductComponent = (curElem) => {
 
   const { product_id, title, product_feature_img,
@@ -13,7 +15,7 @@ const FeaturesProductComponent = (curElem) => {
           <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl justify-center">
             {/* Blurry background image */}
             {product_feature_img && (
-              <img
+              <CachedImage
                 src={product_feature_img}
                 alt={title}
                 className="absolute inset-0 w-full h-full object-cover filter blur-[14px] scale-110"
@@ -23,7 +25,7 @@ const FeaturesProductComponent = (curElem) => {
               />
             )}
             {/* Foreground sharp image */}
-            <img
+            <CachedImage
               className="relative z-10 object-cover transition-all ease-linear duration-300 group-hover:scale-125 scale-110"
               src={product_feature_img}
               alt={title}
