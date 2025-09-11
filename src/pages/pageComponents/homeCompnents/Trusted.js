@@ -8,7 +8,7 @@ function Trusted() {
     "fa-brands fa-tiktok hover:text-black",
     "fa-brands fa-apple hover:text-gray-600",
     "fa-brands fa-google hover:text-red-600",
-    "fa-brands fa-amazon hover:text-white",
+    "fa-brands fa-amazon hover:text-black",
     "fa-brands fa-meta hover:text-blue-600",
     "fa-brands fa-facebook hover:text-blue-600",
     "fa-brands fa-instagram hover:text-pink-500",
