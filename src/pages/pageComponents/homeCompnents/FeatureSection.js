@@ -72,7 +72,8 @@ function FeatureSection() {
           <OfferTimer endTime={offerEndTime} />
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
+          {searchQuery ? "" : <i className="fa-solid fa-gift text-primary"></i>}
           Featured Products
         </h2>
 
@@ -89,11 +90,11 @@ function FeatureSection() {
       {gamingProducts.length > 0 && !searchQuery && (
         <div className="container mx-auto p-4 py-6  rounded-lg">
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
-              <i className="fa-solid fa-gamepad text-primary"></i>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
+              {searchQuery ? "" : <i className="fa-solid fa-gamepad text-primary"></i>}
               Gaming Products
             </h2>
-            <p className="text-gray-600">High-performance gaming earbuds for the ultimate gaming experience</p>
+            <p className="text-gray-600 text-sm">High-performance gaming earbuds for the ultimate gaming experience</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -106,7 +107,8 @@ function FeatureSection() {
 
       {/* All Products Section */}
       <div className="container mx-auto p-4 py-6" id='store'>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
+          {searchQuery ? "" : <i className="fa-solid fa-box-open text-primary"></i>}
           {searchQuery ? `Search Results for "${searchQuery}" (${allProducts.length} found)` : 'All Products'}
         </h2>
 
