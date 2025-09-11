@@ -9,7 +9,7 @@ function CarouselSection() {
   const featuredProducts = itemsData.filter(product => product.featured).slice(0, 3);
 
   return (
-    <div className="w-full container mx-auto px-4 py-1 h-[84vh]">
+    <div className="w-full container mx-auto px-4 py-1 md:h-[84vh] h-[63.5vh]">
       <div className="h-full">
         <Carousel slideInterval={3000} className="rounded-lg shadow-lg">
           {featuredProducts.map((product, index) => (
@@ -17,7 +17,7 @@ function CarouselSection() {
               <CachedImage
                 src={product.product_feature_img}
                 alt={product.title}
-                className="w-full h-full object-cover rounded-lg md:blur-sm"
+                className="w-full h-full object-cover rounded-lg blur-sm"
                 loadingComponent={
                   <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
                     <div className="text-gray-500">Loading carousel...</div>
@@ -32,13 +32,13 @@ function CarouselSection() {
                   </div>
                 }
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                <div className="w-[40%] h-full flex justify-center items-center ">
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center flex-col md:flex-row gap-1">
+                <div className="w-[30%] md:h-full h-1/2 flex justify-center items-center">
 
                   <CachedImage
                     src={product.product_feature_img}
                     alt={product.title}
-                    className="w-auto h-auto object-cover rounded-lg hidden md:block mx-2 scale-[0.7]"
+                    className="w-auto h-auto object-cover rounded-lg block mx-2 md:scale-[0.8] scale-105"
                     loadingComponent={
                       <div className="w-32 h-32 bg-gray-200 animate-pulse rounded-lg hidden md:block mx-2" />
                     }
@@ -50,16 +50,18 @@ function CarouselSection() {
                   />
                 </div>
                 <div className="text-center text-white max-w-2xl px-6">
-                  <h2 className="text-4xl font-bold mb-4">{product.title}</h2>
-                  <p className="text-xl mb-4">{product.description}</p>
-                  <div className="flex items-center justify-center gap-4 mb-4">
+                  <h2 className="md:text-4xl lg:text-5xl text-2xl font-bold md:mb-2 mb-[1px]">{product.title}</h2>
+                  <div className="flex justify-center items-center">
+                  <p className="md:text-xl text-xs w-full md:w-2/3  md:mb-4 mb-2">{product.description}</p>
+                  </div>
+                  <div className="flex items-center justify-center gap-4 md:mb-4 mb-3">
 
-                    <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs md:text-sm font-bold">
                       {product.discount_percentage}% OFF
                     </span>
                   </div>
                   <NavLink to={`/product/${product.product_id}`} className="w-full flex justify-center items-center">
-                    <button className="bg-white hover:bg-primary hover:text-white text-primary px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
+                    <button className="bg-white hover:bg-primary hover:text-white text-primary px-8 py-3 rounded-lg font-semibold transition-colors duration-300 text-xs md:text-sm">
                       Shop Now
                     </button>
                   </NavLink>

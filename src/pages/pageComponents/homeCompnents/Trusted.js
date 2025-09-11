@@ -27,13 +27,13 @@ function Trusted() {
   ];
 
   return (
-    <div className="brands-log overflow-hidden mx-auto container">
+    <div className="brands-log overflow-hidden mx-auto 2xl:container w-full">
       <div className="heading text-center py-4 md:py-8 font-extrabold text-2xl md:text-4xl text-gray-300 flex-wrap flex justify-center items-center">
         <p className='max-w-2xl md:w-full"'>
       Brands Whose Customers Trust Us
         </p>
       </div>
-      <div className="relative w-full h-24">
+      <div className="relative w-full h-24 trust-list">
         <AutoScrolling
           items={brands}
           speed={0.7}

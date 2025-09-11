@@ -29,7 +29,7 @@ const FeaturesProductComponent = (curElem) => {
             )}
             {/* Foreground sharp image */}
             <CachedImage
-              className="relative z-10 object-cover transition-all ease-linear duration-300 group-hover:scale-125 scale-95"
+              className="relative z-10 object-cover transition-all ease-linear duration-300 scale-95"
               src={product_feature_img}
               alt={title}
               loading="lazy"
