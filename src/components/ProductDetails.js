@@ -6,7 +6,7 @@ import FeaturesProductComponent from '../pages/pageComponents/productComponent/F
 import { preloadImages } from '../utils/imageCache';
 
 function ProductDetails({ product }) {
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(1);
   const [latestProducts, setLatestProducts] = useState([]);
   const { products } = useProductContext();
   const navigate = useNavigate();
@@ -61,15 +61,15 @@ function ProductDetails({ product }) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 ">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="max-w-6xl mx-auto px-4 py-2">
+      <div className="grid grid-cols-[auto] lg:grid-cols-2 gap-2 md:gap-8">
         {/* Product Images */}
-        <div className="space-y-4">
-          <div className="aspect-square rounded-lg overflow-hidden">
+        <div className="space-y-4 flex flex-row md:flex-col justify-between md:justify-center md:items-center items-start gap-2">
+          <div className="aspect-quare rounded-lg overflow-hidden h-[36vh] md:h-[90%] w-[100%] flex-1">
             <CachedImage
-              src={product.product_images?.[selectedImage] || product.product_feature_img}
+              src={product.product_images?.[selectedImage] || product.product_images[1]}
               alt={product.title}
-              className="w-full h-full object-cover drop-shadow-md shadow-primary"
+              className="w-full h- object-cover drop-shadow-md shadow-primary md:h-[450px]"
               loadingComponent={
                 <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
                   <div className="text-gray-500">Loading image...</div>
@@ -86,13 +86,13 @@ function ProductDetails({ product }) {
             />
           </div>
           {product.product_images && product.product_images.length > 1 && (
-            <div className="grid grid-cols-4 gap-2">
-              {product.product_images.map((image, index) => (
+            <div className="grid md:grid-cols-4 grid-cols-1 grid-rows-2 md:grid-rows-1 gap-2" style={{ marginTop: '0px' }}>
+              {product.product_images.slice(1, 3).map((image, index) => (
                 <button
                   key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 ${
-                    selectedImage === index ? 'border-primary' : 'border-gray-200'
+                  onClick={() => setSelectedImage(index+1)}
+                  className={`aspect-square rounded-lg overflow-hidden border-2 h-[10vh] md:h-full w-[10vh] md:w-full ${
+                    selectedImage === index+1 ? 'border-primary' : 'border-gray-200'
                   }`}
                 >
                   <CachedImage
@@ -117,10 +117,10 @@ function ProductDetails({ product }) {
         </div>
 
         {/* Product Info */}
-        <div className="space-y-6">
+        <div className="md:space-y-4 space-y-1">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.title}</h1>
-            <p className="text-gray-600 text-lg">{product.description}</p>
+            <h1 className="text-3xl font-bold text-gray-900 md:mb-2">{product.title}</h1>
+            <p className="text-gray-600 text-lg" style={{ lineHeight: '1.3' }}>{product.description}</p>
           </div>
 
           {/* Rating */}

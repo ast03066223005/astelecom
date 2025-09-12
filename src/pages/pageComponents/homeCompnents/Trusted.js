@@ -4,25 +4,25 @@ import AutoScrolling from '../../../components/AutoScrolling';
 function Trusted() {
   // Brand icons
   const brands = [
-    "fa-brands fa-microsoft hover:text-blue-600",
+    "fa-brands fa-microsoft hover:text-primary",
     "fa-brands fa-tiktok hover:text-black",
     "fa-brands fa-apple hover:text-gray-600",
     "fa-brands fa-google hover:text-red-600",
     "fa-brands fa-amazon hover:text-black",
-    "fa-brands fa-meta hover:text-blue-600",
-    "fa-brands fa-facebook hover:text-blue-600",
+    "fa-brands fa-meta hover:text-primary",
+    "fa-brands fa-facebook hover:text-primary",
     "fa-brands fa-instagram hover:text-pink-500",
-    "fa-brands fa-twitter hover:text-blue-600",
-    "fa-brands fa-linkedin hover:text-blue-600",
+    "fa-brands fa-twitter hover:text-primary",
+    "fa-brands fa-linkedin hover:text-primary",
     "fa-brands fa-youtube hover:text-red-600",
     "fa-brands fa-pinterest hover:text-red-500",
     "fa-brands fa-reddit hover:text-orange-600",
     "fa-brands fa-snapchat hover:text-yellow-300",
     "fa-brands fa-skype hover:text-sky-600",
-    "fa-brands fa-telegram hover:text-blue-600",
-    "fa-brands fa-vimeo hover:text-blue-600",
+    "fa-brands fa-telegram hover:text-primary",
+    "fa-brands fa-vimeo hover:text-primary",
     "fa-brands fa-vine hover:text-green-600",
-    "fa-brands fa-vk hover:text-blue-600",
+    "fa-brands fa-vk hover:text-primary",
     "fa-brands fa-whatsapp hover:text-green-500",
   ];
 
