@@ -15,9 +15,9 @@ function CarouselSection() {
           {featuredProducts.map((product, index) => (
             <div key={product.product_id} className="relative h-full">
               <CachedImage
-                src={product.product_feature_img}
-                alt={product.title}
-                className="w-full h-full object-cover rounded-lg blur-sm"
+                src={product.banner_image}
+                alt={"banner image"}
+                className="w-full h-full object-cover rounded-lg "
                 loadingComponent={
                   <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
                     <div className="text-gray-500">Loading carousel...</div>
@@ -32,13 +32,13 @@ function CarouselSection() {
                   </div>
                 }
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center flex-col md:flex-row gap-1">
-                <div className="w-[30%] md:h-full h-1/2 flex justify-center items-center">
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center flex-col md:flex-row gap-4">
+                <div className="w-[30%] md:h-full h-[43%] flex justify-center items-center aspect-square">
 
                   <CachedImage
                     src={product.product_feature_img}
                     alt={product.title}
-                    className="w-auto h-auto object-cover rounded-lg block mx-2 md:scale-[0.8] scale-105"
+                    className="w-auto h-auto object-cover rounded-lg block mx-2 md:scale-[0.7] scale-125 mb-4"
                     loadingComponent={
                       <div className="w-32 h-32 bg-gray-200 animate-pulse rounded-lg hidden md:block mx-2" />
                     }
@@ -60,7 +60,7 @@ function CarouselSection() {
                       {product.discount_percentage}% OFF
                     </span>
                   </div>
-                  <NavLink to={`/product/${product.product_id}`} className="w-full flex justify-center items-center">
+                  <NavLink to={`/product/${product.product_id}`} className="w-full flex justify-center items-center mb-2">
                     <button className="bg-white hover:bg-primary hover:text-white text-primary px-8 py-3 rounded-lg font-semibold transition-colors duration-300 text-xs md:text-sm">
                       Shop Now
                     </button>

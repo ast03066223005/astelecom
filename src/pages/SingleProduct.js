@@ -129,7 +129,7 @@ function SingleProduct() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-800 mb-4">Product Not Found</h1>
           <p className="text-gray-600 mb-4">The product you're looking for doesn't exist.</p>
-          <a href="/shop" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+          <a href="/shop" className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-hover transition-colors">
             Back to Shop
           </a>
         </div>
@@ -140,7 +140,7 @@ function SingleProduct() {
   return (
     <>
       <div className="container mx-auto transition-all ease-linear duration-300 overflow-x-hidden">
-        <div className="p-4 flex flex-col items-start">
+        <div className="md:p-4 px-4 py-2 flex flex-col items-start">
           {/* breadcrumb_navigation  */}
           <Breadcrumb 
             link_1={"/"} 

@@ -44,7 +44,7 @@ function SkeletonSingleProduct() {
               {Array(5).fill().map((_, index) => (
                 <i key={index} className="fa-solid bg-gray-200 rounded-md w-6 h-6"></i>
               ))}
-              <div className='bg-gray-200 rounded-md p-2 ml-2 w-10 h-6 text-sm text-blue-600'></div>
+              <div className='bg-gray-200 rounded-md p-2 ml-2 w-10 h-6 text-sm text-primary'></div>
             </div>
             <div className="share flex gap-2">
               {Array(2).fill().map((_, index) => (

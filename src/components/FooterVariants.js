@@ -6,10 +6,10 @@ export function SimpleFooter() {
     const currentYear = new Date().getFullYear();
     
     const socialIcons = [
-        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: '#', color: 'hover:text-blue-600' },
+        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: '#', color: 'hover:text-primary' },
         { name: 'Twitter', icon: 'fa-brands fa-twitter', link: '#', color: 'hover:text-blue-400' },
         { name: 'Instagram', icon: 'fa-brands fa-instagram', link: '#', color: 'hover:text-pink-500' },
-        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: '#', color: 'hover:text-blue-700' },
+        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: '#', color: 'hover:text-primary-hover' },
         { name: 'YouTube', icon: 'fa-brands fa-youtube', link: '#', color: 'hover:text-red-600' },
         { name: 'TikTok', icon: 'fa-brands fa-tiktok', link: '#', color: 'hover:text-black' }
     ];
@@ -50,10 +50,10 @@ export function EnhancedFooter() {
     const currentYear = new Date().getFullYear();
     
     const socialIcons = [
-        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: '#', color: 'hover:text-blue-600' },
+        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: '#', color: 'hover:text-primary' },
         { name: 'Twitter', icon: 'fa-brands fa-twitter', link: '#', color: 'hover:text-blue-400' },
         { name: 'Instagram', icon: 'fa-brands fa-instagram', link: '#', color: 'hover:text-pink-500' },
-        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: '#', color: 'hover:text-blue-700' },
+        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: '#', color: 'hover:text-primary-hover' },
         { name: 'YouTube', icon: 'fa-brands fa-youtube', link: '#', color: 'hover:text-red-600' },
         { name: 'TikTok', icon: 'fa-brands fa-tiktok', link: '#', color: 'hover:text-black' },
         { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', link: '#', color: 'hover:text-green-500' },
@@ -163,7 +163,7 @@ export function MinimalFooter() {
     const currentYear = new Date().getFullYear();
     
     const socialIcons = [
-        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: '#', color: 'hover:text-blue-600' },
+        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: '#', color: 'hover:text-primary' },
         { name: 'Instagram', icon: 'fa-brands fa-instagram', link: '#', color: 'hover:text-pink-500' },
         { name: 'Twitter', icon: 'fa-brands fa-twitter', link: '#', color: 'hover:text-blue-400' }
     ];

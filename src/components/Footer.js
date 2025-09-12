@@ -7,10 +7,10 @@ function Footer() {
     const socialLinks = getSocialLinks();
     
     const socialIcons = [
-        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: socialLinks.facebook, color: 'hover:text-blue-600' },
+        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: socialLinks.facebook, color: 'hover:text-primary' },
         { name: 'Twitter', icon: 'fa-brands fa-twitter', link: socialLinks.twitter, color: 'hover:text-blue-400' },
         { name: 'Instagram', icon: 'fa-brands fa-instagram', link: socialLinks.instagram, color: 'hover:text-pink-500' },
-        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: socialLinks.linkedin, color: 'hover:text-blue-700' },
+        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: socialLinks.linkedin, color: 'hover:text-primary-hover' },
         { name: 'YouTube', icon: 'fa-brands fa-youtube', link: socialLinks.youtube, color: 'hover:text-red-600' },
         { name: 'TikTok', icon: 'fa-brands fa-tiktok', link: socialLinks.tiktok, color: 'hover:text-black' },
         { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', link: socialLinks.whatsapp, color: 'hover:text-green-500' },
