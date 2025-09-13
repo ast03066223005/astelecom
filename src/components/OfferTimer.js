@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-
 import arrowImg from './../assets/images/arrow2.svg'
 
-const OfferTimer = ({ endTime }) => {
+// User sets the future date here (yyyy-mm-ddThh:mm:ss format is best)
+const futureDate = "2025-09-25T23:59:59"; 
+
+const OfferTimer = () => {
+    // Calculate time left from now to futureDate
     const calculateTimeLeft = () => {
-        const difference = new Date(endTime) - new Date();
+        const difference = new Date(futureDate) - new Date();
         let timeLeft = {};
 
         if (difference > 0) {
@@ -13,6 +16,14 @@ const OfferTimer = ({ endTime }) => {
                 hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                 minutes: Math.floor((difference / 1000 / 60) % 60),
                 seconds: Math.floor((difference / 1000) % 60),
+            };
+        } else {
+            // If expired, show all zeroes
+            timeLeft = {
+                days: 0,
+                hours: 0,
+                minutes: 0,
+                seconds: 0,
             };
         }
 
@@ -29,11 +40,19 @@ const OfferTimer = ({ endTime }) => {
         return () => clearTimeout(timer);
     });
 
+    // Helper to pad numbers to 2 digits
+    const pad = (num) => String(num).padStart(2, '0');
+
+    // Check if all values are zero (offer expired)
+    const isExpired = 
+        timeLeft.days === 0 &&
+        timeLeft.hours === 0 &&
+        timeLeft.minutes === 0 &&
+        timeLeft.seconds === 0;
 
     return (
         <div className=" container p-4 mx-auto border-2 border-dashed border-gray-200 mb-1 rounded-lg text-md md:text-lg lg:text-xl">
             <div className="timer-heading flex justify-evenly sm:justify-between items-center">
-
                 <div className="div flex justify-between items-center gap-12">
                     <div className="heading font-medium text-primary hidden md:block">
                         <div className="arrow absolute w-16 z-20">
@@ -41,48 +60,27 @@ const OfferTimer = ({ endTime }) => {
                         </div>
                         On Sale Now
                     </div>
-
                     <div className="timer-ends flex justify-evenly items-center gap-4 text-white">
                         <span className=' text-black hidden sm:flex'>Ending in</span>
-                        {timeLeft.days !== undefined ? (
-                            <span>
-                                <div className="timer flex items-center gap-2">
-
-                                    <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.days}</div><span className='text-black'>:</span>
-                                    <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.hours}</div><span className='text-black'>:</span>
-                                    <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.minutes}</div><span className='text-black'>:</span>
-                                    <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{timeLeft.seconds}</div>
-                                </div>
-
-
-                            </span>
-                        ) : (
-                            <span>Offer Expired!</span>
-                        )}
-
-
+                        <span>
+                            <div className="timer flex items-center gap-2">
+                                <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{pad(timeLeft.days)}</div><span className='text-black'>:</span>
+                                <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{pad(timeLeft.hours)}</div><span className='text-black'>:</span>
+                                <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{pad(timeLeft.minutes)}</div><span className='text-black'>:</span>
+                                <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{pad(timeLeft.seconds)}</div>
+                            </div>
+                        </span>
                     </div>
-
                 </div>
-
-
-
-
             </div>
-
             <div className="text-center">
-
+                {/* You can add more info here if needed */}
+                {isExpired && (
+                    <span className="text-red-600 font-semibold block mt-2">Offer Expired!</span>
+                )}
             </div>
         </div>
     );
 };
 
 export default OfferTimer;
-
-
-
-
-
-
-
-
