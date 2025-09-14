@@ -66,11 +66,11 @@ function ProductDetails({ product }) {
       <div className="grid grid-cols-[auto] lg:grid-cols-2 gap-2 md:gap-8">
         {/* Product Images */}
         <div className="space-y-4 flex flex-row md:flex-col justify-between md:justify-center md:items-center items-start gap-2">
-          <div className="aspect-square rounded-lg overflow-hidden h-[36vh] md:h-[450px] w-[100%] flex-1">
+          <div className="aspect-square rounded-lg overflow-hidden h-[36vh] md:h-[480px] w-[100%] flex-1">
             <CachedImage
               src={product.product_images?.[selectedImage] || product.product_images[1]}
               alt={product.title}
-              className="w-full object-cover drop-shadow-md shadow-primary h-full md:h-[450px]"
+              className="w-full object-cover drop-shadow-md shadow-primary h-full"
               loadingComponent={
                 <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
                   <div className="text-gray-500">Loading image...</div>
