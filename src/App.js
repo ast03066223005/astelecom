@@ -32,7 +32,7 @@ function App() {
   )
   }
   return (
- <div className='w-screen pr-2  transition-all ease-linear duration-300 bg-gray-100'>
+ <div className='w-screen  transition-all ease-linear duration-300 bg-gray-100'>
 <Router
   future={{
     v7_startTransition: true,

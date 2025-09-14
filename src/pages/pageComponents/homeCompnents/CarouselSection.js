@@ -38,7 +38,7 @@ function CarouselSection() {
                   <CachedImage
                     src={product.product_feature_img}
                     alt={product.title}
-                    className="w-auto h-auto object-cover rounded-lg block mx-2 md:scale-[0.7] scale-125 mb-4"
+                    className="w-auto h-auto object-cover rounded-lg block mx-2 md:scale-[0.7] sm:scale-[0.3] scale-125 mb-4"
                     loadingComponent={
                       <div className="w-32 h-32 bg-gray-200 animate-pulse rounded-lg hidden md:block mx-2" />
                     }
