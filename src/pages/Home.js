@@ -56,7 +56,7 @@ function Home() {
   }, [featureProducts]); // Removed products dependency to prevent unnecessary re-runs
 
   return (
-    <div className='w-screen pr-2  transition-all ease-linear duration-300 bg-gray-100'>
+    <div className='w-screen  transition-all ease-linear duration-300 bg-gray-100'>
       <CarouselSection />
 
       <div className='bg-white mt-4'>

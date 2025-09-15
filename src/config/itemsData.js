@@ -47,7 +47,7 @@ const itemsData = [
     product_feature_img: "/ast/products/ast-g2.webp",
     banner_image: "/ast/banners/main-banner.webp",
     product_images: [
-      "/ast/products/ast-g2.webp",
+      "/ast/products/posts/ast-g2.webp",
       "/ast/products/ast-g2.webp",
       "/ast/products/ast-g2.webp",
     ],
@@ -123,7 +123,7 @@ const itemsData = [
     discount_percentage: 38,
     product_feature_img: "/ast/products/ast-g4.webp",
     product_images: [
-      "/ast/products/ast-g4.webp",
+      "/ast/products/posts/ast-g4.webp",
       "/ast/products/ast-g4.webp",
       "/ast/products/ast-g4.webp",
     ],
@@ -159,7 +159,7 @@ const itemsData = [
     discount_percentage: 36,
     product_feature_img: "/ast/products/ast-g5.webp",
     product_images: [
-      "/ast/products/ast-g5.webp",
+      "/ast/products/posts/ast-g5.webp",
       "/ast/products/ast-g5.webp",
       "/ast/products/ast-g5.webp",
     ],
