@@ -13,7 +13,7 @@ const itemsData = [
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g1.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g1.webp"),
-      getProductImageUrl("/ast/products/ast-g1.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g1.webp"),
     ],
     product_stock: 150,
     reviews: 1247,
@@ -50,8 +50,8 @@ const itemsData = [
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g2.webp"),
-      getProductImageUrl("/ast/products/ast-g2.webp"),
-      getProductImageUrl("/ast/products/ast-g2.webp"),
+      getProductImageUrl("/ast/products/posts-2/ast-g2.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g2.webp"),
     ],
     product_stock: 75,
     reviews: 92,
@@ -90,7 +90,7 @@ const itemsData = [
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g3.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g3.webp"),
-      getProductImageUrl("/ast/products/ast-g3.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g3.webp"),
     ],
     product_stock: 200,
     reviews: 19,
@@ -126,8 +126,8 @@ const itemsData = [
     product_feature_img: getProductImageUrl("/ast/products/ast-g4.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g4.webp"),
-      getProductImageUrl("/ast/products/ast-g4.webp"),
-      getProductImageUrl("/ast/products/ast-g4.webp"),
+      getProductImageUrl("/ast/products/posts-2/ast-g4.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g4.webp"),
     ],
     product_stock: 80,
     reviews: 19,
@@ -162,8 +162,8 @@ const itemsData = [
     product_feature_img: getProductImageUrl("/ast/products/ast-g5.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g5.webp"),
-      getProductImageUrl("/ast/products/ast-g5.webp"),
-      getProductImageUrl("/ast/products/ast-g5.webp"),
+      getProductImageUrl("/ast/products/posts-2/ast-g5.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g5.webp"),
     ],
     product_stock: 300,
     reviews: 92,
@@ -200,7 +200,7 @@ const itemsData = [
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g6.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g6.webp"),
-      getProductImageUrl("/ast/products/ast-g6.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g6.webp"),
     ],
     product_stock: 250,
     reviews: 89,
@@ -235,7 +235,7 @@ const itemsData = [
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g7.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g7.webp"),
-      getProductImageUrl("/ast/products/ast-g7.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g7.webp"),
     ],
     product_stock: 120,
     reviews: 71,
@@ -271,7 +271,7 @@ const itemsData = [
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g8.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g8.webp"),
-      getProductImageUrl("/ast/products/ast-g8.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g8.webp"),
     ],
     product_stock: 100,
     reviews: 100,
@@ -309,7 +309,7 @@ const itemsData = [
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g9.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g9.webp"),
-      getProductImageUrl("/ast/products/ast-g9.webp"),
+      getProductImageUrl("/ast/products/pack/ast-g9.webp"),
     ],
     product_stock: 80,
     reviews: 12,
