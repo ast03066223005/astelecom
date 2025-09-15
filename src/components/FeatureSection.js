@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useProductContext } from '../../../context/ProductContext'
+import { useProductContext } from '../context/ProductContext'
 import { useSearchParams, useNavigate } from 'react-router-dom'
-import FeaturesProductComponent from '../productComponent/FeaturesProductComponent';
-import OfferTimer from '../../../components/OfferTimer';
-import Services from '../homeCompnents/Services';
+import ProductCard from './ProductCard';
+import OfferTimer from './OfferTimer';
+import Services from './Services';
 
 function FeatureSection() {
   const { featureProducts, products } = useProductContext();
@@ -79,7 +79,7 @@ function FeatureSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {filteredProducts.map((curElem) => {
-            return <FeaturesProductComponent key={curElem.product_id} {...curElem} />
+            return <ProductCard key={curElem.product_id} {...curElem} />
           })}
         </div>
 
@@ -99,7 +99,7 @@ function FeatureSection() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {gamingProducts.map((curElem) => {
-              return <FeaturesProductComponent key={curElem.product_id} {...curElem} />
+              return <ProductCard key={curElem.product_id} {...curElem} />
             })}
           </div>
         </div>
@@ -114,7 +114,7 @@ function FeatureSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {allProducts.map((curElem) => {
-            return <FeaturesProductComponent key={curElem.product_id} {...curElem} />
+            return <ProductCard key={curElem.product_id} {...curElem} />
           })}
         </div>
 

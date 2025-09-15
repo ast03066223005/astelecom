@@ -1,5 +1,5 @@
 import React from 'react';
-import AutoScrolling from '../../../components/AutoScrolling';
+import AutoScrolling from './AutoScrolling';
 
 function Trusted() {
   // Brand icons
@@ -26,7 +26,7 @@ function Trusted() {
   return (
     <div className="brands-log overflow-hidden mx-auto 2xl:container w-full">
       <div className="heading text-center py-4 md:py-8 font-extrabold text-2xl md:text-4xl text-gray-300 flex-wrap flex justify-center items-center">
-        <p className='max-w-2xl md:w-full"'>
+        <p className='w-[22rem] md:w-full"'>
       Brands Whose Customers Trust Us
         </p>
       </div>

@@ -5,8 +5,8 @@ import {
   BusinessBannerBar, 
   SaleBannerBar, 
   NewsTickerBannerBar 
-} from '../../../components/BannerBarVariants';
-import { getCurrentVariant, getCustomAnnouncements } from '../../../config/bannerConfig';
+} from './BannerBarVariants';
+import { getCurrentVariant, getCustomAnnouncements } from '../config/bannerConfig';
 
 function BannerBar() {
   // Get the current variant from configuration

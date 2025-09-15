@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import CachedImage from '../../../components/CachedImage';
+import CachedImage from './CachedImage';
 
-const FeaturesProductComponent = (curElem) => {
+const ProductCard = (curElem) => {
 
   const { product_id, title, product_feature_img, product_images,
     current_price, discount_percentage, discount_price, ratings, mood } = curElem;
@@ -12,7 +12,7 @@ const FeaturesProductComponent = (curElem) => {
 
       <NavLink to={`/product/${product_id}`}>
         <div className="relative flex w-full md:w-full flex-col overflow-hidden bg-white hover:shadow-md group">
-          <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl justify-center">
+          <div className="relative mx-3 mt-3 flex h-60 xl:h-72 overflow-hidden rounded-xl justify-center">
             {/* Blurry background image */}
             {!product_images[0].includes("/ast/products/posts/") && product_feature_img && (
               <CachedImage
@@ -99,4 +99,4 @@ const FeaturesProductComponent = (curElem) => {
   )
 }
 
-export default FeaturesProductComponent
+export default ProductCard

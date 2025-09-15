@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
-import SkeletonSingleProduct from '../skeletonPages/SkeletonSingleProduct'
+import SkeletonSingleProduct from '../pages/skeletonPages/SkeletonSingleProduct'
 import LoadingBar from '../components/LoadingBar';
 import ProductDetails from '../components/ProductDetails';
-import FeaturesProductComponent from './pageComponents/productComponent/FeaturesProductComponent';
+import ProductCard from '../components/ProductCard';
 import { preloadImages } from '../utils/imageCache';
 
 function SingleProduct() {
@@ -159,7 +159,7 @@ function SingleProduct() {
             {searchResults.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
                 {searchResults.map((product) => (
-                  <FeaturesProductComponent 
+                  <ProductCard 
                     key={product.product_id} 
                     {...product} 
                   />

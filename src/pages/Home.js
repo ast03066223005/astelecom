@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import Trusted from './pageComponents/homeCompnents/Trusted'
-import CarouselSection from './pageComponents/homeCompnents/CarouselSection'
-import FeaturesProduct from './pageComponents/homeCompnents/FeatureSection'
+import Trusted from '../components/Trusted'
+import CarouselSection from '../components/CarouselSection'
+import FeaturesProduct from '../components/FeatureSection'
 import { useProductContext } from '../context/ProductContext'
 import { preloadImages } from '../utils/imageCache'
 
