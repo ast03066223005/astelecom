@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CachedImage from './CachedImage';
 import { useProductContext } from '../context/ProductContext';
-import FeaturesProductComponent from '../pages/pageComponents/productComponent/FeaturesProductComponent';
+import ProductCard from './ProductCard';
 import { preloadImages } from '../utils/imageCache';
 
 function ProductDetails({ product }) {
@@ -272,7 +272,7 @@ function ProductDetails({ product }) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {latestProducts?.map((latestProduct) => (
-                <FeaturesProductComponent
+                <ProductCard
                   key={latestProduct.product_id}
                   {...latestProduct}
                 />

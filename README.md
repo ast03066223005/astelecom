@@ -264,27 +264,23 @@ const message = `Hi! I'm interested in this product: ${title}. Can you provide m
 ```
 src/
 ├── components/           # Reusable UI components
-│   ├── preComponent/    # Basic components (Logo, NavItem, etc.)
 │   ├── Breadcrumb.js    # Navigation breadcrumb
 │   ├── Footer.js        # Site footer
 │   ├── Navbar.js        # Navigation bar
 │   └── ...
 ├── context/             # React Context providers
 │   ├── ProductContext.js    # Product data management
-│   └── FilterContext.js     # Filter and search state
 ├── pages/               # Page components
-│   ├── pageComponents/  # Page-specific components
 │   ├── Home.js          # Homepage
 │   ├── Shop.js          # Product listing page
 │   ├── SingleProduct.js # Product detail page
-│   └── Contact.js       # Contact page
+│   └── Error.js       # Contact page
+│   └── ...
 ├── reducer/             # State reducers
 │   ├── ProductReducer.js    # Product state logic
-│   └── FilterReducer.js     # Filter state logic
 ├── assets/              # Static assets
 │   ├── css/             # Custom CSS files
 │   ├── images/          # Image assets
-│   └── data/            # Static data files
 └── ...
 ```
 
@@ -296,9 +292,7 @@ src/
 
 ### Pages
 - **Home**: Landing page with hero section and featured products
-- **Shop**: Product catalog with filtering and sorting options
 - **SingleProduct**: Detailed product view with image gallery
-- **Contact**: Contact form and business information
 
 ### Features
 - **Responsive Design**: Mobile-first approach with Tailwind CSS

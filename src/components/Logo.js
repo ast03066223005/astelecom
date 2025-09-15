@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 function Logo(props,className) {
 	return (
 		<>
-			<NavLink to="/" className={`flex ${`text-` + props.textSize} font-bold flex-col items-start gap-0 ${className}`}>
+			<NavLink to="/" className={`flex ${`text-` + props.textSize} font-bold flex-col items-start gap-0 2xl:gap-1 ${className}`} aria-label="ast-logo">
 				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 441 170" className={`w-10 md:w-[52px] h-auto ${className}`} fill={props.fill || 'black'}>
 					<g>

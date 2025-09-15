@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb";
 import React from "react";
 
 function SkeletonSingleProduct() {

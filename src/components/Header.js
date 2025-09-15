@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
-import Logo from './preComponent/Logo'
+import Logo from './Logo'
 
-function Navbar() {
+function Header() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isScrolled, setIsScrolled] = useState(false);
     const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -110,6 +110,7 @@ function Navbar() {
                                 {/* Clear button - only show when there's text */}
                                 {searchQuery && (
                                     <button
+                                        aria-label="Clear search"
                                         type="button"
                                         onClick={clearSearch}
                                         className="absolute inset-y-0 right-8 flex items-center pr-3 text-gray-400 hover:text-red-500 transition-colors"
@@ -120,6 +121,7 @@ function Navbar() {
 
                                 {/* Search button */}
                                 <button
+                                    aria-label="Search"
                                     type="submit"
                                     className={`rounded-r-lg absolute inset-y-0 right-0 flex items-center px-3 ${isScrolled
                                         ? 'bg-primary text-white hover:text-gray-200 backdrop-blur-sm border-2 border-gray-100 text-xs'
@@ -164,6 +166,8 @@ function Navbar() {
                     <div className="relative top-0 left-0 w-full z-[100] bg-white/90 backdrop-blur-lg shadow-lg px-4 py-3 flex items-center animate-fade-in-down">
                         <form onSubmit={handleSearch} className="relative flex-1">
                             <input
+                                aria-label="Search products..."
+                                id="search"
                                 type="text"
                                 placeholder="Search products..."
                                 value={searchQuery}
@@ -178,6 +182,7 @@ function Navbar() {
                             {/* Clear button */}
                             {searchQuery && (
                                 <button
+                                    aria-label="Clear search"
                                     type="button"
                                     onClick={clearSearch}
                                     className="absolute inset-y-0 right-12 flex items-center pr-3 text-gray-400 hover:text-red-500 transition-colors"
@@ -187,6 +192,7 @@ function Navbar() {
                             )}
                             {/* Search button */}
                             <button
+                                aria-label="Search"
                                 type="submit"
                                 className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary"
                             >
@@ -195,6 +201,7 @@ function Navbar() {
                         </form>
                         <button
                             aria-label="Close search"
+                            id="close-search"
                             className="ml-2 text-gray-500 hover:text-red-500 text-2xl"
                             onClick={() => setShowMobileSearch(false)}
                         >
@@ -208,4 +215,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default Header;

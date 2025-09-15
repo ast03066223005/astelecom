@@ -6,9 +6,9 @@ import Home from './pages/Home'
 import SingleProduct from './pages/SingleProduct'
 import ErrorPage from './pages/ErrorPage';
 
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Footer from './components/Footer';
-import BannerBar from './pages/pageComponents/homeCompnents/BannerBar';
+import BannerBar from './components/BannerBar';
 import ImageCacheManager from './components/ImageCacheManager';
 
 import { useProductContext } from './context/ProductContext';
@@ -40,7 +40,7 @@ function App() {
   }}
 >
   <BannerBar />
-  <Navbar />
+  <Header />
   <Routes>
     <Route path="/" element={<Home />}/>
     <Route path="/product/:id" element={<SingleProduct />}/>
@@ -48,6 +48,7 @@ function App() {
   </Routes>
     <Footer/>
    {scrollY > 100 && <button
+   aria-label='scroll-to-top'
      id='scroll-to-top'
      className='fixed bottom-4 right-4 z-50 w-8 h-8 bg-primary hover:bg-primary/80 text-white p-1 rounded-full shadow-lg transition-colors'
      onClick={() => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import heroImg from './../../../assets/images/heroImg.webp'
 import Logo from '../../../components/preComponent/Logo'
-import Buttons from '../../../components/Buttons'
+import Buttons from './Buttons'
 
 
 
