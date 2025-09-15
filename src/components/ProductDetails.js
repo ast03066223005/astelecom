@@ -56,7 +56,7 @@ function ProductDetails({ product }) {
   };
 
   const handleWhatsAppOrder = () => {
-    const message = `Hi! I want to order: ${product.title} - $${product.discount_price} \n${window.location.href}`;
+    const message = `Hi! I want to order: ${product.title} - PKR:${product.discount_price} \n${window.location.href}`;
     const whatsappUrl = `https://wa.me/+923066223005?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
