@@ -90,6 +90,7 @@ const itemsData = [
     current_price: 3400,
     discount_percentage: 35,
     product_feature_img: getProductImageUrl("/ast/products/ast-g3.webp"),
+    banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g3.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g3.webp"),
@@ -128,6 +129,7 @@ const itemsData = [
     current_price: 4000,
     discount_percentage: 38,
     product_feature_img: getProductImageUrl("/ast/products/ast-g4.webp"),
+    banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g4.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g4.webp"),
@@ -165,6 +167,7 @@ const itemsData = [
     current_price: 3600,
     discount_percentage: 36,
     product_feature_img: getProductImageUrl("/ast/products/ast-g5.webp"),
+    banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g5.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g5.webp"),
@@ -203,6 +206,7 @@ const itemsData = [
     current_price: 3500,
     discount_percentage: 31,
     product_feature_img: getProductImageUrl("/ast/products/ast-g6.webp"),
+    banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g6.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g6.webp"),
@@ -239,6 +243,7 @@ const itemsData = [
     current_price: 3200,
     discount_percentage: 34,
     product_feature_img: getProductImageUrl("/ast/products/ast-g7.webp"),
+    banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g7.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g7.webp"),
@@ -315,6 +320,7 @@ const itemsData = [
     current_price: 4200,
     discount_percentage: 43,
     product_feature_img: getProductImageUrl("/ast/products/ast-g9.webp"),
+    banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
       getProductImageUrl("/ast/products/posts/ast-g9.webp"),
       getProductImageUrl("/ast/products/posts-2/ast-g9.webp"),

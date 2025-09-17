@@ -1,4 +1,3 @@
-import { memo, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,10 +10,21 @@ import CachedImage from "./CachedImage";
 import ImgSvg from "./ImgSvg";
 
 function CarouselSection() {
-  const featuredProducts = useMemo(() => 
-    itemsData.filter(product => product.featured).slice(0, 3), 
-    []
-  );
+  const allProducts = itemsData;
+
+  // Early return if no products
+  if (!allProducts || allProducts.length === 0) {
+    return (
+      <section className="w-full container mx-auto px-4 py-1 md:h-[84vh] sm:h-[80vh] h-[63.5vh]" aria-label="Carousel Section">
+        <div className="rounded-lg shadow-lg h-full bg-gray-200 flex items-center justify-center">
+          <div className="text-center">
+            <ImgSvg className="w-20 h-20 text-gray-500 mx-auto mb-4" />
+            <p className="text-gray-600">No products available</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full container mx-auto px-4 py-1 md:h-[84vh] sm:h-[80vh] h-[63.5vh]" aria-label="Carousel Section">
@@ -25,12 +35,17 @@ function CarouselSection() {
         navigation
         loop
         className="rounded-lg shadow-lg h-full"
-        style={{ backgroundColor: "#f3f4f6", backgroundImage: `url(${featuredProducts[0].banner_image})`, backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ 
+          backgroundColor: "#f3f4f6", 
+          backgroundImage: allProducts[0]?.banner_image ? `url(${allProducts[0].banner_image})` : 'none', 
+          backgroundSize: "cover", 
+          backgroundPosition: "center" 
+        }}
       >
         <div className="relative z-[-1] w-full h-full flex items-center justify-center">
           <ImgSvg className="w-40 h-40 text-gray-500 " />
         </div>
-        {featuredProducts.map((product) => (
+        {allProducts.map((product) => (
           <SwiperSlide key={product.product_id}>
             <div className="relative h-full">
               {/* background banner */}
@@ -126,4 +141,4 @@ function CarouselSection() {
   );
 }
 
-export default memo(CarouselSection);
+export default CarouselSection;

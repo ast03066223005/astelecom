@@ -27,6 +27,15 @@ module.exports = {
         accent: {
           DEFAULT: '#e11d48', // rose-600, for error, accent
         },
+        green: {
+          DEFAULT: 'rgb(5, 122, 85)',   // base green
+          100: 'rgb(160, 204, 171)',    // light green
+          300: 'rgb(0, 153, 106)',      // medium green
+          500: 'rgb(5, 122, 85)',       // your original green
+          700: 'rgb(2, 92, 64)',        // dark green
+          900: 'rgb(0, 55, 39)',        // darkest green
+        },
+ 
         // You can add more app-specific colors here as needed
       },
       keyframes: {
