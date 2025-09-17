@@ -67,7 +67,7 @@ function FeatureSection() {
     <>
 
       {/* Featured Products Section */}
-      <div className="container mx-auto p-4 py-6">
+      <section className="container mx-auto p-4 py-6">
         <div className="heading">
           <OfferTimer endTime={offerEndTime} />
         </div>
@@ -83,12 +83,12 @@ function FeatureSection() {
           })}
         </div>
 
-      </div>
+      </section>
       <Services />
 
       {/* Gaming Products Section */}
       {gamingProducts.length > 0 && !searchQuery && (
-        <div className="container mx-auto p-4 py-6  rounded-lg">
+        <section className="container mx-auto p-4 py-6  rounded-lg">
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
               {searchQuery ? "" : <i className="fa-solid fa-gamepad text-primary"></i>}
@@ -102,11 +102,11 @@ function FeatureSection() {
               return <ProductCard key={curElem.product_id} {...curElem} />
             })}
           </div>
-        </div>
+        </section>
       )}
 
       {/* All Products Section */}
-      <div className="container mx-auto p-4 py-6" id='store'>
+      <section className="container mx-auto p-4 py-6" id='store'>
         <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
           {searchQuery ? "" : <i className="fa-solid fa-box-open text-primary"></i>}
           {searchQuery ? `Search Results for "${searchQuery}" (${allProducts.length} found)` : 'All Products'}
@@ -141,7 +141,7 @@ function FeatureSection() {
             </button>
           </div>
         )}
-      </div>
+      </section>
     </>
   )
 }

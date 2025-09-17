@@ -7,6 +7,7 @@ import LoadingBar from '../components/LoadingBar';
 import ProductDetails from '../components/ProductDetails';
 import ProductCard from '../components/ProductCard';
 import { preloadImages } from '../utils/imageCache';
+import { Helmet } from 'react-helmet-async';
 
 function SingleProduct() {
   const { getSingleProduct, isSingleLoading, singleProduct, products } = useProductContext();
@@ -66,10 +67,10 @@ function SingleProduct() {
   // Handle search functionality on product page
   useEffect(() => {
     const searchQuery = searchParams.get('search');
-    
+
     if (searchQuery && searchQuery.trim() !== '') {
       const searchTerm = searchQuery.toLowerCase().trim();
-      
+
       // Filter products based on search term
       const filteredProducts = products.filter(product => {
         const searchableText = [
@@ -78,18 +79,18 @@ function SingleProduct() {
           product.category,
           ...(product.keywords || [])
         ].join(' ').toLowerCase();
-        
+
         return searchableText.includes(searchTerm);
       });
-      
+
       setSearchResults(filteredProducts);
       setShowSearchResults(true);
-      
+
       // Scroll to top when search is performed
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 100);
-      
+
       // Debug logging in development
       if (process.env.NODE_ENV === 'development') {
         console.log('Product page search term:', searchTerm);
@@ -100,10 +101,10 @@ function SingleProduct() {
       setSearchResults([]);
     }
   }, [searchParams, products]);
-  
-  // Get the product from singleProduct (which should be a single object, not an array)
-  const correctProduct = singleProduct || {};
-  
+
+  // Memoize correctProduct to avoid unnecessary effect triggers (fixes eslint warning)
+  const correctProduct = React.useMemo(() => singleProduct || {}, [singleProduct]);
+
   // Debug logging (only in development and only when values change)
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
@@ -139,7 +140,22 @@ function SingleProduct() {
 
   return (
     <>
+      <Helmet>
+        <title>{correctProduct.title} | AST Earbuds</title>
+        <meta name="description" content={correctProduct.description} />
+        <meta name="keywords" content={correctProduct.keywords} />
+        <meta name="author" content="AST" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+        <meta name="yandexbot" content="index, follow" />
+        <meta name="sitemap" content="https://astelecom.store/sitemap.xml" />
+        <link rel="canonical" href={`https://astelecom.store/product/${correctProduct.product_id}`} />
+        <meta name="sr-only" content={correctProduct.sr_only_description} />
+        <meta name="sr-only-focusable" content={correctProduct.sr_only_description} />
+      </Helmet>
       <div className="container mx-auto transition-all ease-linear duration-300 overflow-x-hidden">
+        <p className="sr-only">{correctProduct.sr_only_description}</p>
         <div className="md:p-4 px-4 py-2 flex flex-col items-start">
           {/* breadcrumb_navigation  */}
           <Breadcrumb 

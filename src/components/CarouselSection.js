@@ -7,12 +7,13 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import itemsData from "../config/itemsData";
 import { NavLink } from "react-router-dom";
 import CachedImage from "./CachedImage";
+import ImgSvg from "./ImgSvg";
 
 function CarouselSection() {
   const featuredProducts = itemsData.filter(product => product.featured).slice(0, 3);
 
   return (
-    <div className="w-full container mx-auto px-4 py-1 md:h-[84vh] sm:h-[80vh] h-[63.5vh]">
+    <section className="w-full container mx-auto px-4 py-1 md:h-[84vh] sm:h-[80vh] h-[63.5vh]" aria-label="Carousel Section">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         autoplay={{ delay: 3000 }}
@@ -22,6 +23,9 @@ function CarouselSection() {
         className="rounded-lg shadow-lg h-full"
         style={{ backgroundColor: "#f3f4f6", backgroundImage: `url(${featuredProducts[0].banner_image})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
+        <div className="relative z-[-1] w-full h-full flex items-center justify-center">
+          <ImgSvg className="w-40 h-40 text-gray-500 " />
+        </div>
         {featuredProducts.map((product) => (
           <SwiperSlide key={product.product_id}>
             <div className="relative h-full">
@@ -40,14 +44,19 @@ function CarouselSection() {
                     src={product.product_feature_img}
                     alt={product.title}
                     className="w-auto h-auto object-cover rounded-lg block mx-2 md:scale-[0.7] sm:scale-[0.5] 2xl:scale-[0.8] scale-125 mb-4"
+                    loadingComponent={
+                        <div className="text-gray-500 text-sm">
+                          <ImgSvg className="w-20 h-20" />
+                        </div>
+                    }
                   />
                 </div>
 
                 {/* right content */}
                 <div className="text-center text-white max-w-2xl px-6 2xl:space-y-3">
-                  <h2 className="md:text-4xl lg:text-5xl text-2xl font-bold md:mb-2 mb-[1px] 2xl:text-6xl">
+                  <h1 className="md:text-4xl lg:text-5xl text-2xl font-bold md:mb-2 mb-[1px] 2xl:text-6xl">
                     {product.title}
-                  </h2>
+                  </h1>
                   <div className="flex justify-center items-center">
                     <p className="md:text-xl text-xs w-full md:w-2/3 md:mb-4 mb-2 2xl:text-2xl">
                       {product.description}
@@ -74,7 +83,7 @@ function CarouselSection() {
       </Swiper>
 
       {/* custom pagination & nav styles */}
-      <style jsx>{`
+      <style>{`
         .swiper-pagination-bullet {
           background: white !important;
           opacity: 0.6;
@@ -109,7 +118,7 @@ function CarouselSection() {
           color: white;
         }
       `}</style>
-    </div>
+    </section>
   );
 }
 

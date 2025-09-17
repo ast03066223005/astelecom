@@ -4,6 +4,7 @@ import CarouselSection from '../components/CarouselSection'
 import FeaturesProduct from '../components/FeatureSection'
 import { useProductContext } from '../context/ProductContext'
 import { preloadImages } from '../utils/imageCache'
+import { Helmet } from 'react-helmet-async';
 
 function Home() {
   const { featureProducts, products } = useProductContext();
@@ -53,10 +54,22 @@ function Home() {
     if (featureProducts.length > 0) {
       preloadCriticalImages();
     }
-  }, [featureProducts]); // Removed products dependency to prevent unnecessary re-runs
+  }, [featureProducts, products]); // Added 'products' to dependencies to satisfy exhaustive-deps lint rule
 
   return (
     <div className='w-screen  transition-all ease-linear duration-300 bg-gray-100'>
+      <Helmet>
+        <title>AST Earbuds | Best Wireless Earbuds & Audio Accessories</title>
+        <meta name="description" content="AST offers the best wireless earbuds, fast chargers, and audio accessories. Discover high-quality sound, advanced features, and affordable prices. Shop AST for your next audio upgrade!" />
+        <meta name="keywords" content="AST, wireless earbuds, fast chargers, audio accessories, high-quality sound, advanced features, affordable prices" />
+        <meta name="author" content="AST" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+        <meta name="yandexbot" content="index, follow" />
+        <meta name="sitemap" content="https://astelecom.store/sitemap.xml" />
+        <link rel="canonical" href="https://astelecom.store/" />
+      </Helmet>
       <CarouselSection />
 
       <div className='bg-white mt-4'>

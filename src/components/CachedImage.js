@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { loadImage } from "../utils/imageCache";
+import ImgSvg from "./ImgSvg";
 
 function CachedImage({ 
   src, 
@@ -14,8 +15,19 @@ function CachedImage({
   const {
     minHeight,
     minWidth,
+    jsx, // Remove jsx prop if it exists
     ...domProps
   } = props;
+  
+  // Filter out any remaining non-DOM props
+  const validDomProps = Object.keys(domProps).reduce((acc, key) => {
+    // Only keep valid HTML attributes
+    if (key.startsWith('data-') || key.startsWith('aria-') || 
+        ['className', 'id', 'style', 'width', 'height', 'src', 'alt', 'onLoad', 'onError', 'onClick'].includes(key)) {
+      acc[key] = domProps[key];
+    }
+    return acc;
+  }, {});
   const [imageState, setImageState] = useState({
     status: 'loading', // 'loading', 'loaded', 'error'
     image: null,
@@ -56,7 +68,9 @@ function CachedImage({
           minHeight: minHeight || domProps.height || 100
         }}
       >
-        <div className="text-gray-500 text-sm">Loading...</div>
+        <div className="text-gray-500 text-sm">
+          <ImgSvg className="w-8 h-8" />
+        </div>
       </div>
     );
   }
@@ -77,7 +91,7 @@ function CachedImage({
         }}
       >
         <div className="text-gray-500 text-xs text-center">
-          <div>⚠️</div>
+          <div><ImgSvg className="w-4 h-4" /></div>
           <div>Failed to load</div>
         </div>
       </div>
@@ -89,7 +103,7 @@ function CachedImage({
     <img 
       src={imageState.image.src} 
       alt={alt} 
-      {...domProps}
+      {...validDomProps}
       onLoad={() => onLoad && onLoad(imageState.image)}
       onError={() => {
         const error = new Error('Image failed to display');

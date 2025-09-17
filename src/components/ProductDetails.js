@@ -4,6 +4,7 @@ import CachedImage from './CachedImage';
 import { useProductContext } from '../context/ProductContext';
 import ProductCard from './ProductCard';
 import { preloadImages } from '../utils/imageCache';
+import ImgSvg from './ImgSvg';
 
 function ProductDetails({ product }) {
   const [selectedImage, setSelectedImage] = useState(1);
@@ -62,7 +63,7 @@ function ProductDetails({ product }) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-2">
+    <section className="max-w-6xl mx-auto px-4 py-2">
       <div className="grid grid-cols-[auto] lg:grid-cols-2 gap-2 md:gap-8">
         {/* Product Images */}
         <div className="space-y-4 flex flex-row md:flex-col justify-between md:justify-center md:items-center items-start gap-2">
@@ -73,13 +74,17 @@ function ProductDetails({ product }) {
               className="w-full object-cover drop-shadow-md shadow-primary h-full"
               loadingComponent={
                 <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
-                  <div className="text-gray-500">Loading image...</div>
+                  <div className="text-gray-500">
+                    <ImgSvg className="w-20 h-20" />
+                  </div>
                 </div>
               }
               errorComponent={
                 <div className="w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center">
                   <div className="text-gray-500 text-center">
-                    <div className="text-2xl mb-2">📷</div>
+                    <div className="text-2xl mb-2">
+                      <ImgSvg className="w-20 h-20" />
+                    </div>
                     <div>Image not available</div>
                   </div>
                 </div>
@@ -101,12 +106,16 @@ function ProductDetails({ product }) {
                     className="w-full h-full object-cover drop-shadow-sm"
                     loadingComponent={
                       <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
-                        <div className="text-gray-400 text-xs">Loading...</div>
+                        <div className="text-gray-400 text-xs">
+                          <ImgSvg className="w-4 h-4" />
+                        </div>
                       </div>
                     }
                     errorComponent={
                       <div className="w-full h-full bg-gray-100 border border-gray-300 flex items-center justify-center">
-                        <div className="text-gray-400 text-xs">❌</div>
+                        <div className="text-gray-400 text-xs">
+                          <ImgSvg className="w-4 h-4" />
+                        </div>
                       </div>
                     }
                   />
@@ -119,7 +128,10 @@ function ProductDetails({ product }) {
         {/* Product Info */}
         <div className="md:space-y-4 space-y-1">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 md:mb-2">{product.title}</h1>
+            <h1 className="text-3xl font-bold text-gray-900 md:mb-2">
+              <b>{product.title}</b>
+            </h1>
+            <p className="sr-only">{product.sr_only_description}</p>
             <p className="text-gray-600 text-lg" style={{ lineHeight: '1.3' }}>{product.description}</p>
           </div>
 
@@ -298,7 +310,7 @@ function ProductDetails({ product }) {
           </div>
         )
       }
-    </div >
+    </section >
   );
 }
 
