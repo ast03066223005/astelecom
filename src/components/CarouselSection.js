@@ -26,6 +26,12 @@ function CarouselSection() {
     );
   }
 
+  const handleWhatsAppOrder = (product) => {
+    const message = `Hi! I want to order: ${product.title} - PKR:${product.discount_price} \n${window.location.href}`;
+    const whatsappUrl = `https://wa.me/+923066223005?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section className="w-full container mx-auto px-4 py-1 md:h-[84vh] sm:h-[80vh] h-[63.5vh]" aria-label="Carousel Section">
       <Swiper
@@ -86,14 +92,14 @@ function CarouselSection() {
                       {product.discount_percentage}% OFF
                     </span>
                   </div>
-                  <NavLink
-                    to={`/product/${product.product_id}`}
+                  <div
                     className="w-full flex justify-center items-center mb-2"
+                    onClick={() => handleWhatsAppOrder(product)}
                   >
-                    <button className="bg-white hover:bg-primary hover:text-white text-primary px-8 py-3 rounded-lg font-semibold transition-colors duration-300 text-xs md:text-sm 2xl:text-xl">
-                      Shop Now
+                    <button className="bg-white hover:bg-primary hover:text-white text-green-500 px-8 py-3 rounded-lg font-semibold transition-colors duration-300 text-xs md:text-sm 2xl:text-xl flex items-center justify-center gap-2">
+                    <i className="fa-brands fa-whatsapp text-xl"></i> Message Us
                     </button>
-                  </NavLink>
+                  </div>
                 </div>
               </div>
             </div>
