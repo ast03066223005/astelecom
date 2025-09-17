@@ -74,11 +74,11 @@ function ProductDetails({ product }) {
   }
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-2">
+    <section className="max-w-6xl mx-auto px-4 md:py-2 pb-2">
       <div className="grid grid-cols-[auto] lg:grid-cols-2 gap-2 md:gap-8">
         {/* Product Images */}
         <div className="space-y-4 flex flex-row md:flex-col justify-between md:justify-center md:items-center items-start gap-2">
-          <div className="aspect-square rounded-lg overflow-hidden h-[36vh] md:h-[480px] w-[100%] flex-1">
+          <div className="aspect-square rounded-lg overflow-hidden h-auto md:h-[480px] w-[100%] flex-1">
             <CachedImage
               src={product.product_images?.[selectedImage] || product.product_images[1]}
               alt={product.title}
@@ -103,7 +103,7 @@ function ProductDetails({ product }) {
             />
           </div>
           {product.product_images && product.product_images.length > 1 && (
-            <div className="grid md:grid-cols-4 grid-cols-1 grid-rows-2 md:grid-rows-1 gap-2" style={{ marginTop: '0px' }}>
+            <div className="hidden md:grid md:grid-cols-4 grid-cols-1 grid-rows-2 md:grid-rows-1 gap-2" style={{ marginTop: '0px' }}>
               {product.product_images.slice(1, 3).map((image, index) => (
                 <button
                   key={index}
@@ -155,7 +155,7 @@ function ProductDetails({ product }) {
 
 
           {/* Price */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center md:gap-4 gap-3">
             {
               product?.discount_price && (
                 <span className="text-3xl font-bold text-green-600">
@@ -170,7 +170,7 @@ function ProductDetails({ product }) {
               )}
             {
               product?.discount_percentage && (
-                <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                <span className="bg-red-500 text-white md:px-3 px-2 py-1 rounded-full text-xs md:text-sm font-bold">
                   {product?.discount_percentage}% OFF
                 </span>
               )
