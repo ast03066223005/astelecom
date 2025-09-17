@@ -1,6 +1,8 @@
 
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { preloadCriticalImages } from './utils/preloadImages';
 
 import Home from './pages/Home'
 import SingleProduct from './pages/SingleProduct'
@@ -21,6 +23,13 @@ function App() {
     window.addEventListener('scroll', () => {
       setScrollY(window.scrollY);
     });
+    
+    // Preload critical images
+    preloadCriticalImages().then(() => {
+      console.log('Critical images preloaded');
+    }).catch((error) => {
+      console.warn('Failed to preload some images:', error);
+    });
   }, []);
 
   const { isLoading } = useProductContext();
@@ -33,6 +42,10 @@ function App() {
   }
   return (
  <div className='w-screen  transition-all ease-linear duration-300 bg-gray-100'>
+ <Helmet>
+  <title>AST Earbuds | Best Wireless Earbuds & Audio Accessories</title>
+  <meta name="description" content="AST offers the best wireless earbuds, fast chargers, and audio accessories. Discover high-quality sound, advanced features, and affordable prices. Shop AST for your next audio upgrade!" />
+ </Helmet>
 <Router
   future={{
     v7_startTransition: true,

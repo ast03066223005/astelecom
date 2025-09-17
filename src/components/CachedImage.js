@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import { loadImage } from "../utils/imageCache";
+import ImgSvg from "./ImgSvg";
 
 function CachedImage({ 
   src, 
@@ -14,15 +15,26 @@ function CachedImage({
   const {
     minHeight,
     minWidth,
+    jsx, // Remove jsx prop if it exists
     ...domProps
   } = props;
+  
+  // Filter out any remaining non-DOM props
+  const validDomProps = Object.keys(domProps).reduce((acc, key) => {
+    // Only keep valid HTML attributes
+    if (key.startsWith('data-') || key.startsWith('aria-') || 
+        ['className', 'id', 'style', 'width', 'height', 'src', 'alt', 'onLoad', 'onError', 'onClick'].includes(key)) {
+      acc[key] = domProps[key];
+    }
+    return acc;
+  }, {});
   const [imageState, setImageState] = useState({
     status: 'loading', // 'loading', 'loaded', 'error'
     image: null,
     error: null
   });
 
-  useEffect(() => {
+  const loadImageCallback = useCallback(async () => {
     if (!src) {
       setImageState({ status: 'error', image: null, error: 'No source provided' });
       return;
@@ -30,16 +42,19 @@ function CachedImage({
 
     setImageState({ status: 'loading', image: null, error: null });
 
-    loadImage(src)
-      .then((image) => {
-        setImageState({ status: 'loaded', image, error: null });
-        onLoad && onLoad(image);
-      })
-      .catch((error) => {
-        setImageState({ status: 'error', image: null, error });
-        onError && onError(error);
-      });
+    try {
+      const image = await loadImage(src);
+      setImageState({ status: 'loaded', image, error: null });
+      onLoad && onLoad(image);
+    } catch (error) {
+      setImageState({ status: 'error', image: null, error });
+      onError && onError(error);
+    }
   }, [src, onLoad, onError]);
+
+  useEffect(() => {
+    loadImageCallback();
+  }, [loadImageCallback]);
 
   // Loading state
   if (imageState.status === 'loading') {
@@ -56,7 +71,9 @@ function CachedImage({
           minHeight: minHeight || domProps.height || 100
         }}
       >
-        <div className="text-gray-500 text-sm">Loading...</div>
+        <div className="text-gray-500 text-sm">
+          <ImgSvg className="w-8 h-8" />
+        </div>
       </div>
     );
   }
@@ -77,7 +94,7 @@ function CachedImage({
         }}
       >
         <div className="text-gray-500 text-xs text-center">
-          <div>⚠️</div>
+          <div><ImgSvg className="w-4 h-4" /></div>
           <div>Failed to load</div>
         </div>
       </div>
@@ -89,7 +106,9 @@ function CachedImage({
     <img 
       src={imageState.image.src} 
       alt={alt} 
-      {...domProps}
+      {...validDomProps}
+      loading="lazy"
+      decoding="async"
       onLoad={() => onLoad && onLoad(imageState.image)}
       onError={() => {
         const error = new Error('Image failed to display');
@@ -100,4 +119,4 @@ function CachedImage({
   );
 }
 
-export default CachedImage;
+export default memo(CachedImage);

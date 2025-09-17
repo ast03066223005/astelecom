@@ -7,14 +7,14 @@ function Footer() {
     const socialLinks = getSocialLinks();
     
     const socialIcons = [
-        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: socialLinks.facebook, color: 'hover:text-blue-700' },
-        { name: 'Twitter', icon: 'fa-brands fa-twitter', link: socialLinks.twitter, color: 'hover:text-blue-400' },
-        { name: 'Instagram', icon: 'fa-brands fa-instagram', link: socialLinks.instagram, color: 'hover:text-pink-500' },
-        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: socialLinks.linkedin, color: 'hover:text-sky-600' },
-        { name: 'YouTube', icon: 'fa-brands fa-youtube', link: socialLinks.youtube, color: 'hover:text-red-600' },
-        { name: 'TikTok', icon: 'fa-brands fa-tiktok', link: socialLinks.tiktok, color: 'hover:text-black' },
-        { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', link: socialLinks.whatsapp, color: 'hover:text-green-500' },
-        { name: 'Telegram', icon: 'fa-brands fa-telegram', link: socialLinks.telegram, color: 'hover:text-blue-500' }
+        { name: 'Facebook', icon: 'fa-brands fa-facebook', link: socialLinks.facebook, color: 'hover:text-blue-700', sr_only: 'https://www.facebook.com/astelecom' },
+        { name: 'Twitter', icon: 'fa-brands fa-twitter', link: socialLinks.twitter, color: 'hover:text-blue-400', sr_only: 'https://www.twitter.com/astelecom' },
+        { name: 'Instagram', icon: 'fa-brands fa-instagram', link: socialLinks.instagram, color: 'hover:text-pink-500', sr_only: 'https://www.instagram.com/astelecom' },
+        { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', link: socialLinks.linkedin, color: 'hover:text-sky-600', sr_only: 'https://www.linkedin.com/astelecom' },
+        { name: 'YouTube', icon: 'fa-brands fa-youtube', link: socialLinks.youtube, color: 'hover:text-red-600', sr_only: 'https://www.youtube.com/astelecom' },
+        { name: 'TikTok', icon: 'fa-brands fa-tiktok', link: socialLinks.tiktok, color: 'hover:text-black', sr_only: 'https://www.tiktok.com/astelecom' },
+        { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', link: socialLinks.whatsapp, color: 'hover:text-green-500', sr_only: 'https://wa.me/+923066223005' },
+        { name: 'Telegram', icon: 'fa-brands fa-telegram', link: socialLinks.telegram, color: 'hover:text-blue-500', sr_only: 'https://t.me/astelecom' }
     ];
 
     return (
@@ -30,6 +30,7 @@ function Footer() {
                                 href={social.link}
                                 className="social-icon-link group"
                                 aria-label={social.name}
+                                aria-describedby={social.sr_only}
                             >
                                 <i className={`${social.icon} text-2xl text-gray-600 ${social.color} transition-all duration-300 group-hover:scale-110 transform`}></i>
                             </a>

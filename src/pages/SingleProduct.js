@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo, useMemo, useCallback } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
@@ -7,6 +7,7 @@ import LoadingBar from '../components/LoadingBar';
 import ProductDetails from '../components/ProductDetails';
 import ProductCard from '../components/ProductCard';
 import { preloadImages } from '../utils/imageCache';
+import { Helmet } from 'react-helmet-async';
 
 function SingleProduct() {
   const { getSingleProduct, isSingleLoading, singleProduct, products } = useProductContext();
@@ -63,47 +64,66 @@ function SingleProduct() {
     preloadProductImages();
   }, [singleProduct]);
 
+  // Memoize search results to avoid unnecessary recalculations
+  const searchResultsMemo = useMemo(() => {
+    const searchQuery = searchParams.get('search');
+
+    if (!searchQuery || searchQuery.trim() === '') {
+      return [];
+    }
+
+    const searchTerm = searchQuery.toLowerCase().trim();
+
+    // Filter products based on search term
+    return products.filter(product => {
+      const searchableText = [
+        product.title,
+        product.description,
+        product.category,
+        ...(product.keywords || [])
+      ].join(' ').toLowerCase();
+
+      return searchableText.includes(searchTerm);
+    });
+  }, [searchParams, products]);
+
   // Handle search functionality on product page
   useEffect(() => {
     const searchQuery = searchParams.get('search');
-    
+
     if (searchQuery && searchQuery.trim() !== '') {
-      const searchTerm = searchQuery.toLowerCase().trim();
-      
-      // Filter products based on search term
-      const filteredProducts = products.filter(product => {
-        const searchableText = [
-          product.title,
-          product.description,
-          product.category,
-          ...(product.keywords || [])
-        ].join(' ').toLowerCase();
-        
-        return searchableText.includes(searchTerm);
-      });
-      
-      setSearchResults(filteredProducts);
+      setSearchResults(searchResultsMemo);
       setShowSearchResults(true);
-      
+
       // Scroll to top when search is performed
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, 100);
-      
+
       // Debug logging in development
       if (process.env.NODE_ENV === 'development') {
-        console.log('Product page search term:', searchTerm);
-        console.log('Search results:', filteredProducts.length);
+        console.log('Product page search term:', searchQuery);
+        console.log('Search results:', searchResultsMemo.length);
       }
     } else {
       setShowSearchResults(false);
       setSearchResults([]);
     }
-  }, [searchParams, products]);
-  
-  // Get the product from singleProduct (which should be a single object, not an array)
-  const correctProduct = singleProduct || {};
-  
+  }, [searchParams, searchResultsMemo]);
+
+  // Memoize correctProduct to avoid unnecessary effect triggers
+  const correctProduct = useMemo(() => singleProduct || {}, [singleProduct]);
+
+  // Memoize the back to product handler
+  const handleBackToProduct = useCallback(() => {
+    setShowSearchResults(false);
+    // Remove search parameter from URL
+    const newUrl = window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+    // Scroll to top when going back to product
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   // Debug logging (only in development and only when values change)
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
@@ -139,7 +159,22 @@ function SingleProduct() {
 
   return (
     <>
+      <Helmet>
+        <title>{correctProduct.title} | AST Earbuds</title>
+        <meta name="description" content={correctProduct.description} />
+        <meta name="keywords" content={correctProduct.keywords} />
+        <meta name="author" content="AST" />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+        <meta name="yandexbot" content="index, follow" />
+        <meta name="sitemap" content="https://astelecom.store/sitemap.xml" />
+        <link rel="canonical" href={`https://astelecom.store/product/${correctProduct.product_id}`} />
+        <meta name="sr-only" content={correctProduct.sr_only_description} />
+        <meta name="sr-only-focusable" content={correctProduct.sr_only_description} />
+      </Helmet>
       <div className="container mx-auto transition-all ease-linear duration-300 overflow-x-hidden">
+        <p className="sr-only">{correctProduct.sr_only_description}</p>
         <div className="md:p-4 px-4 py-2 flex flex-col items-start">
           {/* breadcrumb_navigation  */}
           <Breadcrumb 
@@ -161,7 +196,8 @@ function SingleProduct() {
                 {searchResults.map((product) => (
                   <ProductCard 
                     key={product.product_id} 
-                    {...product} 
+                    {...product}
+                    loading="lazy"
                   />
                 ))}
               </div>
@@ -179,14 +215,7 @@ function SingleProduct() {
             {/* Back to Product Button */}
             <div className="text-center mt-8">
               <button
-                onClick={() => {
-                  setShowSearchResults(false);
-                  // Remove search parameter from URL
-                  const newUrl = window.location.pathname;
-                  window.history.replaceState({}, '', newUrl);
-                  // Scroll to top when going back to product
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={handleBackToProduct}
                 className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 mx-auto"
               >
                 <i className="fa-solid fa-arrow-left"></i>
@@ -203,4 +232,4 @@ function SingleProduct() {
   )
 }
 
-export default SingleProduct;
+export default memo(SingleProduct);

@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { NavLink } from 'react-router-dom';
 import CachedImage from './CachedImage';
+import ImgSvg from './ImgSvg';
 
 const ProductCard = (curElem) => {
 
   const { product_id, title, product_feature_img, product_images,
-    current_price, discount_percentage, discount_price, ratings, mood } = curElem;
+    current_price, discount_percentage, discount_price, ratings, mood, sr_only_description } = curElem;
 
   return (
     <>
 
       <NavLink to={`/product/${product_id}`}>
         <div className="relative flex w-full md:w-full flex-col overflow-hidden bg-white hover:shadow-md group">
+          <p className="sr-only">{sr_only_description}</p>
           <div className="relative mx-3 mt-3 flex h-60 xl:h-72 overflow-hidden rounded-xl justify-center">
             {/* Blurry background image */}
             {!product_images[0].includes("/ast/products/posts/") && product_feature_img && (
@@ -47,13 +49,17 @@ const ProductCard = (curElem) => {
               }}
               loadingComponent={
                 <div className="relative z-10 w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
-                  <div className="text-gray-500 text-sm">Loading...</div>
+                  <div className="text-gray-500 text-sm">
+                    <ImgSvg className="w-20 h-20" />
+                  </div>
                 </div>
               }
               errorComponent={
                 <div className="relative z-10 w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center">
                   <div className="text-gray-500 text-center">
-                    <div className="text-lg mb-1">📷</div>
+                    <div className="text-lg mb-1">
+                      <ImgSvg className="w-20 h-20" />
+                    </div>
                     <div className="text-xs">Image unavailable</div>
                   </div>
                 </div>
@@ -99,4 +105,4 @@ const ProductCard = (curElem) => {
   )
 }
 
-export default ProductCard
+export default memo(ProductCard)

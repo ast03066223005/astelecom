@@ -74,11 +74,11 @@ function Header() {
     }
     return (
         <>
-            <div id='/' className={`w-screen sticky top-0 z-50 transition-all duration-300 ${isScrolled
+            <header id='/' className={`w-screen sticky top-0 z-50 transition-all duration-300 ${isScrolled
                     ? 'bg-primary text-white  backdrop-blur-xl shadow-lg border-b border-white/20 py-1'
                     : 'bg-gray-100 backdrop-blur-md py-2'
                 }`}>
-                <nav className='container mx-auto flex flex-row justify-between gap-6 px-4 flex-wrap items-center'>
+                <nav className='container mx-auto flex flex-row justify-between gap-6 px-4 flex-wrap items-center' aria-label="Header Navigation">
                     <ul className=' col-span-1 flex items-center'>
                         <li>
                             <Logo textSize="xl" text="Abdulrehman Sapra Telecom" fill={isScrolled ? 'white' : 'black'} className={` transition-colors duration-200 ${isScrolled
@@ -90,7 +90,7 @@ function Header() {
 
                     {/* Search Bar - always visible on md+, hidden on mobile unless toggled */}
                     <div className=' flex-1 max-w-2xl mx-4 hidden md:block'>
-                        <form onSubmit={handleSearch} className="relative">
+                        <form onSubmit={handleSearch} className="relative" aria-label="Search Form">
                             <div className="relative">
                                 <input
                                     type="text"
@@ -209,7 +209,7 @@ function Header() {
                         </button>
                     </div>
                 )}
-            </div>
+            </header>
             {/* Mobile search bar, full width, appears at bottom of header when search icon is clicked */}
         </>
     )
