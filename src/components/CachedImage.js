@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import { loadImage } from "../utils/imageCache";
 import ImgSvg from "./ImgSvg";
 
@@ -34,7 +34,7 @@ function CachedImage({
     error: null
   });
 
-  useEffect(() => {
+  const loadImageCallback = useCallback(async () => {
     if (!src) {
       setImageState({ status: 'error', image: null, error: 'No source provided' });
       return;
@@ -42,16 +42,19 @@ function CachedImage({
 
     setImageState({ status: 'loading', image: null, error: null });
 
-    loadImage(src)
-      .then((image) => {
-        setImageState({ status: 'loaded', image, error: null });
-        onLoad && onLoad(image);
-      })
-      .catch((error) => {
-        setImageState({ status: 'error', image: null, error });
-        onError && onError(error);
-      });
+    try {
+      const image = await loadImage(src);
+      setImageState({ status: 'loaded', image, error: null });
+      onLoad && onLoad(image);
+    } catch (error) {
+      setImageState({ status: 'error', image: null, error });
+      onError && onError(error);
+    }
   }, [src, onLoad, onError]);
+
+  useEffect(() => {
+    loadImageCallback();
+  }, [loadImageCallback]);
 
   // Loading state
   if (imageState.status === 'loading') {
@@ -104,6 +107,8 @@ function CachedImage({
       src={imageState.image.src} 
       alt={alt} 
       {...validDomProps}
+      loading="lazy"
+      decoding="async"
       onLoad={() => onLoad && onLoad(imageState.image)}
       onError={() => {
         const error = new Error('Image failed to display');
@@ -114,4 +119,4 @@ function CachedImage({
   );
 }
 
-export default CachedImage;
+export default memo(CachedImage);

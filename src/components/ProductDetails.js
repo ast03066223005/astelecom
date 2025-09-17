@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CachedImage from './CachedImage';
 import { useProductContext } from '../context/ProductContext';
@@ -12,55 +12,66 @@ function ProductDetails({ product }) {
   const { products } = useProductContext();
   const navigate = useNavigate();
 
-  // Get random 3 products excluding current product
-  useEffect(() => {
-    if (products && products.length > 0 && product.product_id) {
-      // Filter out current product and get random 3 products
-      const otherProducts = products.filter(p => p.product_id !== product.product_id);
-
-      if (otherProducts.length > 0) {
-        // Use Fisher-Yates shuffle for better randomness
-        const shuffled = [...otherProducts];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        const selectedProducts = shuffled.slice(0, 3);
-        setLatestProducts(selectedProducts);
-
-        // Preload latest products images in background
-        const latestProductImages = selectedProducts
-          .map(p => p.product_feature_img)
-          .filter(Boolean);
-
-        if (latestProductImages.length > 0) {
-          setTimeout(() => {
-            preloadImages(latestProductImages, 'low');
-          }, 99000); // 99 second delay to not interfere with main product loading
-        }
-      }
+  // Memoize the latest products calculation
+  const latestProductsMemo = useMemo(() => {
+    if (!products || products.length === 0 || !product.product_id) {
+      return [];
     }
-    setSelectedImage(1);
+
+    // Filter out current product and get random 3 products
+    const otherProducts = products.filter(p => p.product_id !== product.product_id);
+
+    if (otherProducts.length === 0) {
+      return [];
+    }
+
+    // Use Fisher-Yates shuffle for better randomness
+    const shuffled = [...otherProducts];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, 3);
   }, [products, product.product_id]);
 
-  if (!product || !product.product_id) {
-    return <div className="text-center py-8">Product not found</div>;
-  }
+  // Update latest products when memoized value changes
+  useEffect(() => {
+    setLatestProducts(latestProductsMemo);
+    
+    // Preload latest products images in background
+    if (latestProductsMemo.length > 0) {
+      const latestProductImages = latestProductsMemo
+        .map(p => p.product_feature_img)
+        .filter(Boolean);
 
-  const renderStars = (rating) => {
+      if (latestProductImages.length > 0) {
+        setTimeout(() => {
+          preloadImages(latestProductImages, 'low');
+        }, 2000); // 2 second delay to not interfere with main product loading
+      }
+    }
+    
+    setSelectedImage(1);
+  }, [latestProductsMemo]);
+
+  const renderStars = useCallback((rating) => {
     return [...Array(5)].map((_, i) => (
       <i
         key={i}
         className={`fa-solid fa-star ${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-300'}`}
       ></i>
     ));
-  };
+  }, []);
 
-  const handleWhatsAppOrder = () => {
+  const handleWhatsAppOrder = useCallback(() => {
     const message = `Hi! I want to order: ${product.title} - PKR:${product.discount_price} \n${window.location.href}`;
     const whatsappUrl = `https://wa.me/+923066223005?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
-  };
+  }, [product.title, product.discount_price]);
+
+  if (!product || !product.product_id) {
+    return <div className="text-center py-8">Product not found</div>;
+  }
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-2">
@@ -287,6 +298,7 @@ function ProductDetails({ product }) {
                 <ProductCard
                   key={latestProduct.product_id}
                   {...latestProduct}
+                  loading="lazy"
                 />
               ))}
             </div>
@@ -314,4 +326,4 @@ function ProductDetails({ product }) {
   );
 }
 
-export default ProductDetails;
+export default memo(ProductDetails);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { NavLink } from 'react-router-dom';
 import CachedImage from './CachedImage';
 import ImgSvg from './ImgSvg';
@@ -105,4 +105,4 @@ const ProductCard = (curElem) => {
   )
 }
 
-export default ProductCard
+export default memo(ProductCard)

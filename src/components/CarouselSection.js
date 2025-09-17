@@ -1,3 +1,4 @@
+import { memo, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,7 +11,10 @@ import CachedImage from "./CachedImage";
 import ImgSvg from "./ImgSvg";
 
 function CarouselSection() {
-  const featuredProducts = itemsData.filter(product => product.featured).slice(0, 3);
+  const featuredProducts = useMemo(() => 
+    itemsData.filter(product => product.featured).slice(0, 3), 
+    []
+  );
 
   return (
     <section className="w-full container mx-auto px-4 py-1 md:h-[84vh] sm:h-[80vh] h-[63.5vh]" aria-label="Carousel Section">
@@ -122,4 +126,4 @@ function CarouselSection() {
   );
 }
 
-export default CarouselSection;
+export default memo(CarouselSection);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo, useMemo, useCallback } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useProductContext } from '../context/ProductContext';
 import Breadcrumb from '../components/Breadcrumb';
@@ -64,26 +64,35 @@ function SingleProduct() {
     preloadProductImages();
   }, [singleProduct]);
 
+  // Memoize search results to avoid unnecessary recalculations
+  const searchResultsMemo = useMemo(() => {
+    const searchQuery = searchParams.get('search');
+
+    if (!searchQuery || searchQuery.trim() === '') {
+      return [];
+    }
+
+    const searchTerm = searchQuery.toLowerCase().trim();
+
+    // Filter products based on search term
+    return products.filter(product => {
+      const searchableText = [
+        product.title,
+        product.description,
+        product.category,
+        ...(product.keywords || [])
+      ].join(' ').toLowerCase();
+
+      return searchableText.includes(searchTerm);
+    });
+  }, [searchParams, products]);
+
   // Handle search functionality on product page
   useEffect(() => {
     const searchQuery = searchParams.get('search');
 
     if (searchQuery && searchQuery.trim() !== '') {
-      const searchTerm = searchQuery.toLowerCase().trim();
-
-      // Filter products based on search term
-      const filteredProducts = products.filter(product => {
-        const searchableText = [
-          product.title,
-          product.description,
-          product.category,
-          ...(product.keywords || [])
-        ].join(' ').toLowerCase();
-
-        return searchableText.includes(searchTerm);
-      });
-
-      setSearchResults(filteredProducts);
+      setSearchResults(searchResultsMemo);
       setShowSearchResults(true);
 
       // Scroll to top when search is performed
@@ -93,17 +102,27 @@ function SingleProduct() {
 
       // Debug logging in development
       if (process.env.NODE_ENV === 'development') {
-        console.log('Product page search term:', searchTerm);
-        console.log('Search results:', filteredProducts.length);
+        console.log('Product page search term:', searchQuery);
+        console.log('Search results:', searchResultsMemo.length);
       }
     } else {
       setShowSearchResults(false);
       setSearchResults([]);
     }
-  }, [searchParams, products]);
+  }, [searchParams, searchResultsMemo]);
 
-  // Memoize correctProduct to avoid unnecessary effect triggers (fixes eslint warning)
-  const correctProduct = React.useMemo(() => singleProduct || {}, [singleProduct]);
+  // Memoize correctProduct to avoid unnecessary effect triggers
+  const correctProduct = useMemo(() => singleProduct || {}, [singleProduct]);
+
+  // Memoize the back to product handler
+  const handleBackToProduct = useCallback(() => {
+    setShowSearchResults(false);
+    // Remove search parameter from URL
+    const newUrl = window.location.pathname;
+    window.history.replaceState({}, '', newUrl);
+    // Scroll to top when going back to product
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   // Debug logging (only in development and only when values change)
   useEffect(() => {
@@ -177,7 +196,8 @@ function SingleProduct() {
                 {searchResults.map((product) => (
                   <ProductCard 
                     key={product.product_id} 
-                    {...product} 
+                    {...product}
+                    loading="lazy"
                   />
                 ))}
               </div>
@@ -195,14 +215,7 @@ function SingleProduct() {
             {/* Back to Product Button */}
             <div className="text-center mt-8">
               <button
-                onClick={() => {
-                  setShowSearchResults(false);
-                  // Remove search parameter from URL
-                  const newUrl = window.location.pathname;
-                  window.history.replaceState({}, '', newUrl);
-                  // Scroll to top when going back to product
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
+                onClick={handleBackToProduct}
                 className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center gap-2 mx-auto"
               >
                 <i className="fa-solid fa-arrow-left"></i>
@@ -219,4 +232,4 @@ function SingleProduct() {
   )
 }
 
-export default SingleProduct;
+export default memo(SingleProduct);

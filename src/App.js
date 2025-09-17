@@ -2,6 +2,7 @@
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { preloadCriticalImages } from './utils/preloadImages';
 
 import Home from './pages/Home'
 import SingleProduct from './pages/SingleProduct'
@@ -21,6 +22,13 @@ function App() {
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setScrollY(window.scrollY);
+    });
+    
+    // Preload critical images
+    preloadCriticalImages().then(() => {
+      console.log('Critical images preloaded');
+    }).catch((error) => {
+      console.warn('Failed to preload some images:', error);
     });
   }, []);
 
