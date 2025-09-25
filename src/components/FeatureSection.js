@@ -39,12 +39,12 @@ function FeatureSection() {
           product.category,
           ...(product.keywords || [])
         ].join(' ').toLowerCase();
-        
+
         return searchableText.includes(searchTerm);
       });
 
       setAllProducts(filteredAll);
-      
+
       // Debug logging in development
       if (process.env.NODE_ENV === 'development') {
         console.log('Search term:', searchTerm);
@@ -71,11 +71,13 @@ function FeatureSection() {
         <div className="heading">
           <OfferTimer endTime={offerEndTime} />
         </div>
-
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
-          {searchQuery ? "" : <i className="fa-solid fa-gift text-primary"></i>}
-          Featured Products
-        </h2>
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
+            {searchQuery ? "" : <i className="fa-solid fa-gift text-primary"></i>}
+            Flash Sale – Ending Soon!
+          </h2>
+          <p className="text-gray-600 text-sm">Grab these exclusive offers before the timer runs out!</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {filteredProducts.map((curElem) => {
@@ -96,7 +98,7 @@ function FeatureSection() {
             </h2>
             <p className="text-gray-600 text-sm">High-performance gaming earbuds for the ultimate gaming experience</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {gamingProducts.map((curElem) => {
               return <ProductCard key={curElem.product_id} {...curElem} />
@@ -107,10 +109,15 @@ function FeatureSection() {
 
       {/* All Products Section */}
       <section className="container mx-auto p-4 py-6" id='store'>
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
-          {searchQuery ? "" : <i className="fa-solid fa-box-open text-primary"></i>}
-          {searchQuery ? `Search Results for "${searchQuery}" (${allProducts.length} found)` : 'All Products'}
-        </h2>
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center flex items-center justify-center gap-2">
+            {searchQuery ? "" : <i className="fa-solid fa-box-open text-primary"></i>}
+            {searchQuery ? `Search Results for "${searchQuery}" (${allProducts.length} found)` : 'All Products'}
+          </h2>
+          <p className="text-gray-600 text-sm text-center mb-4">
+            Explore our full range of products — quality, performance, and value in every item.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {allProducts.map((curElem) => {

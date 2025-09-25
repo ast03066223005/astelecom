@@ -5,9 +5,10 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import itemsData from "../config/itemsData";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import CachedImage from "./CachedImage";
 import ImgSvg from "./ImgSvg";
+import { whatsappNumber, whatsappMessage } from "../config/constants";
 
 function CarouselSection() {
   const allProducts = itemsData;
@@ -27,8 +28,8 @@ function CarouselSection() {
   }
 
   const handleWhatsAppOrder = (product) => {
-    const message = `Hi! I want to order: ${product.title} - PKR:${product.discount_price} \n${window.location.href}`;
-    const whatsappUrl = `https://wa.me/+923066223005?text=${encodeURIComponent(message)}`;
+    const message = whatsappMessage(product);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

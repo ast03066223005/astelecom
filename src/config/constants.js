@@ -3,7 +3,7 @@
 export const CDN_BASE_URL = (() => {
   // Try to use main branch CDN
   const mainUrl = "https://cdn.jsdelivr.net/gh/code-abdulrehman/ast-fe@main/public";
-  const localUrl = "http://localhost:3000";
+  const localUrl = "https://astelecom.store";
 
   // In browser, try to check if main branch exists by pinging a known file
   if (typeof window !== "undefined" && typeof fetch !== "undefined") {
@@ -16,6 +16,8 @@ export const CDN_BASE_URL = (() => {
   }
 })();
 
+
+
 // Image path helpers
 export const getProductImageUrl = (imagePath) => {
   return `${CDN_BASE_URL}${imagePath}`;
@@ -23,4 +25,21 @@ export const getProductImageUrl = (imagePath) => {
 
 export const getBannerImageUrl = (imagePath) => {
   return `${CDN_BASE_URL}${imagePath}`;
+};
+
+export const currency = "Rs.";
+export const whatsappNumber = "+923066223005";
+export const whatsappMessage = (product) => {
+  return `Hi! I want to order: ${product.title} - ${currency}:${product.discount_price} \n${window.location.href}`;
+};
+export const offerTimer = "2025-09-29T23:59:59";
+export const socialLinks = {
+  facebook: 'https://www.facebook.com/astelecom6',
+  twitter: 'https://twitter.com/',
+  instagram: 'https://instagram.com/',
+  linkedin: 'https://linkedin.com/company/',
+  youtube: 'https://youtube.com/',
+  tiktok: 'https://tiktok.com/',
+  whatsapp: 'https://wa.me/+923066223005',
+  telegram: 'https://t.me/'
 };

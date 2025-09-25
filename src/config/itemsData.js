@@ -2,13 +2,13 @@ import { getProductImageUrl, getBannerImageUrl } from './constants.js';
 
 const itemsData = [
   {
-    product_id: 1,
+    product_id: "earbuds-ast-g1",
     title: "AST-G1",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G1 Gold Series G-1 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2400,
+    discount_price: 2100,
     current_price: 3500,
-    discount_percentage: 31,
+    discount_percentage: 40,
     product_feature_img: getProductImageUrl("/ast/products/ast-g1.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -41,7 +41,7 @@ const itemsData = [
     }
   },
   {
-    product_id: 2,
+    product_id: "earbuds-ast-g2",
     title: "AST-G2",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G2 Gold Series G-2 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
@@ -82,13 +82,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 3,
+    product_id: "earbuds-ast-g3",
     title: "AST-G3",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G3 Gold Series G-3 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2200,
+    discount_price: 2400,
     current_price: 3400,
-    discount_percentage: 35,
+    discount_percentage: 29,
     product_feature_img: getProductImageUrl("/ast/products/ast-g3.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -121,13 +121,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 4,
+    product_id: "earbuds-ast-g4",
     title: "AST-G4",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G4 Gold Series G-4 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2500,
+    discount_price: 2300,
     current_price: 4000,
-    discount_percentage: 38,
+    discount_percentage: 43,
     product_feature_img: getProductImageUrl("/ast/products/ast-g4.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -159,13 +159,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 5,
+    product_id: "earbuds-ast-g5",
     title: "AST-G5",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G5 Gold Series G-5 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2300,
+    discount_price: 2350,
     current_price: 3600,
-    discount_percentage: 36,
+    discount_percentage: 35,
     product_feature_img: getProductImageUrl("/ast/products/ast-g5.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -198,13 +198,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 6,
+    product_id: "earbuds-ast-g6",
     title: "AST-G6",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G6 Gold Series G-6 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2400,
+    discount_price: 2250,
     current_price: 3500,
-    discount_percentage: 31,
+    discount_percentage: 36,
     product_feature_img: getProductImageUrl("/ast/products/ast-g6.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -214,7 +214,7 @@ const itemsData = [
     ],
     product_stock: 250,
     reviews: 89,
-    ratings: 5.0,
+    ratings: 5,
     product_colors: ["Black", "Red", "Gray"],
     category: "Electronics",
     series: "AST-G",
@@ -235,13 +235,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 7,
+    product_id: "earbuds-ast-g7",
     title: "AST-G7",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G7 Gold Series G-7 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2100,
+    discount_price: 2300,
     current_price: 3200,
-    discount_percentage: 34,
+    discount_percentage: 28,
     product_feature_img: getProductImageUrl("/ast/products/ast-g7.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -272,13 +272,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 8,
+    product_id: "earbuds-ast-g8",
     title: "AST-G8",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G8 Gold Series G-8 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2500,
+    discount_price: 2450,
     current_price: 4500,
-    discount_percentage: 44,
+    discount_percentage: 46,
     product_feature_img: getProductImageUrl("/ast/products/ast-g8.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [
@@ -312,13 +312,13 @@ const itemsData = [
     }
   },
   {
-    product_id: 9,
+    product_id: "earbuds-ast-g9",
     title: "AST-G9",
     description: "True Wireless Sterea. Hi-Fi Audio, 100%ENC",
     sr_only_description: "AST-G9 Gold Series G-9 wireless earbuds deliver premium Hi-Fi audio with advanced 100% Environmental Noise Cancellation for crystal-clear calls and music. Experience cutting-edge wireless technology, long battery life, and a stylish design—perfect for music lovers and professionals seeking top-tier sound and comfort.",
-    discount_price: 2400,
+    discount_price: 2299,
     current_price: 4200,
-    discount_percentage: 43,
+    discount_percentage: 45,
     product_feature_img: getProductImageUrl("/ast/products/ast-g9.webp"),
     banner_image: getBannerImageUrl("/ast/banners/main-banner.webp"),
     product_images: [

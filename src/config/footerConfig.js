@@ -1,3 +1,4 @@
+import { socialLinks } from './constants';
 // Footer Configuration
 export const FOOTER_CONFIG = {
   // Current active variant
@@ -5,14 +6,14 @@ export const FOOTER_CONFIG = {
   
   // Social media links (update these with your actual social media URLs)
   socialLinks: {
-    facebook: 'https://www.facebook.com/astelecom6',
-    twitter: 'https://twitter.com/',
-    instagram: 'https://instagram.com/',
-    linkedin: 'https://linkedin.com/company/',
-    youtube: 'https://youtube.com/',
-    tiktok: 'https://tiktok.com/',
-    whatsapp: 'https://wa.me/+923066223005',
-    telegram: 'https://t.me/'
+    facebook: socialLinks.facebook,
+    twitter: socialLinks.twitter,
+    instagram: socialLinks.instagram,
+    linkedin: socialLinks.linkedin,
+    youtube: socialLinks.youtube,
+    tiktok: socialLinks.tiktok,
+    whatsapp: socialLinks.whatsapp,
+    telegram: socialLinks.telegram
   },
   
   // Company information

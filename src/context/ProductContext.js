@@ -12,7 +12,7 @@ const initialState = {
     products: [], // Ensure consistency with this key
     featureProducts: [],
     isSingleLoading: false,
-    singleProduct: []
+    singleProduct: null
 }
 
 // Provider component for providing product-related data
@@ -40,7 +40,7 @@ const AppProvider = ({ children }) => {
         dispatch({ type: "SET_SINGLE_LOADING" });
         try {
             // Find product in local data
-            const singleProduct = itemsData.find(product => product.product_id === parseInt(productId));
+            const singleProduct = itemsData.find(product => product.product_id === productId);
             if (singleProduct) {
                 dispatch({ type: "SET_SINGLE_DATA", payload: singleProduct });
             } else {

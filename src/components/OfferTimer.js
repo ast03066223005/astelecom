@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import arrowImg from './../assets/images/arrow2.svg'
-
+import { offerTimer } from '../config/constants';
 // User sets the future date here (yyyy-mm-ddThh:mm:ss format is best)
-const futureDate = "2025-09-25T23:59:59"; 
+const futureDate = offerTimer; 
 
 const OfferTimer = () => {
     // Calculate time left from now to futureDate
@@ -61,7 +61,7 @@ const OfferTimer = () => {
                         On Sale Now
                     </div>
                     <div className="timer-ends flex justify-evenly items-center gap-4 text-white">
-                        <span className=' text-black hidden sm:flex'>Ending in</span>
+                        <span className=' text-black hidden sm:flex'>Hurry Up!</span>
                         <span>
                             <div className="timer flex items-center gap-2">
                                 <div className='w-10 p-2 bg-primary rounded-md flex justify-center items-center shadow-md'>{pad(timeLeft.days)}</div><span className='text-black'>:</span>

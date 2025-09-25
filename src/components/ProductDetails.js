@@ -5,6 +5,7 @@ import { useProductContext } from '../context/ProductContext';
 import ProductCard from './ProductCard';
 import { preloadImages } from '../utils/imageCache';
 import ImgSvg from './ImgSvg';
+import { whatsappNumber, whatsappMessage, currency } from '../config/constants';
 
 function ProductDetails({ product }) {
   const [selectedImage, setSelectedImage] = useState(1);
@@ -64,8 +65,8 @@ function ProductDetails({ product }) {
   }, []);
 
   const handleWhatsAppOrder = useCallback(() => {
-    const message = `Hi! I want to order: ${product.title} - PKR:${product.discount_price} \n${window.location.href}`;
-    const whatsappUrl = `https://wa.me/+923066223005?text=${encodeURIComponent(message)}`;
+    const message = whatsappMessage(product);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }, [product.title, product.discount_price]);
 
@@ -118,14 +119,14 @@ function ProductDetails({ product }) {
                     loadingComponent={
                       <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
                         <div className="text-gray-400 text-xs">
-                          <ImgSvg className="w-4 h-4" />
+                          <ImgSvg className="w-32 h-32" />
                         </div>
                       </div>
                     }
                     errorComponent={
                       <div className="w-full h-full bg-gray-100 border border-gray-300 flex items-center justify-center">
                         <div className="text-gray-400 text-xs">
-                          <ImgSvg className="w-4 h-4" />
+                          <ImgSvg className="w-32 h-32" />
                         </div>
                       </div>
                     }
@@ -159,13 +160,13 @@ function ProductDetails({ product }) {
             {
               product?.discount_price && (
                 <span className="text-3xl font-bold text-green-600">
-                  Rs.{product?.discount_price}
+                  {currency}{product?.discount_price}
                 </span>
               )}
             {
               product?.current_price && (
                 <span className="text-xl line-through text-gray-500">
-                  Rs.{product?.current_price}
+                  {currency}{product?.current_price}
                 </span>
               )}
             {

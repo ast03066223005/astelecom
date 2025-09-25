@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Mulish', sans-serif;
 }   
@@ -27,4 +30,53 @@ body {
   background: linear-gradient(to left, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0) 100%);
   filter: blur(2px);
   z-index: 1;
+}
+
+
+/* Start hidden */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.15s ease-out;
+}
+
+/* Common visible state */
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Extra animation variations */
+.scroll-animate.fade-left.in-view {
+  transform: translateX(0);
+}
+
+.scroll-animate.fade-right.in-view {
+  transform: translateX(0);
+}
+
+.scroll-animate.zoom-in.in-view {
+  transform: scale(1);
+}
+
+.scroll-animate.rotate.in-view {
+  transform: rotate(0deg);
+}
+
+/* Initial states for variations */
+.scroll-animate.fade-left {
+  transform: translateX(-50px);
+}
+
+.scroll-animate.fade-right {
+  transform: translateX(50px);
+}
+
+.scroll-animate.zoom-in {
+  transform: scale(0.8);
+}
+
+.scroll-animate.rotate {
+  transform: rotate(-5deg);
+  opacity: 0;
 }
