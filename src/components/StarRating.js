@@ -17,7 +17,7 @@ const StarRating = ({ rating = 4.2 }) => {
         ))}
       </div>
       <span className="ml-2 bg-yellow-100 text-yellow-800 text-xs px-2 py-0.5 rounded font-semibold">
-        {rating==5 ? 5 : rating.toFixed(1)} / 5
+        {rating===5 ? 5 : rating.toFixed(1)} / 5
       </span>
     </div>
   );
