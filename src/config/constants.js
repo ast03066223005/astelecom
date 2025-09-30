@@ -32,7 +32,7 @@ export const whatsappNumber = "+923066223005";
 export const whatsappMessage = (product) => {
   return `Hi! I want to order: ${product.title} - ${currency}:${product.discount_price} \n${window.location.href}`;
 };
-export const offerTimer = "2025-09-29T23:59:59";
+export const offerTimer = "2025-10-05T23:59:59";
 export const socialLinks = {
   facebook: 'https://www.facebook.com/astelecom6',
   twitter: 'https://twitter.com/',
